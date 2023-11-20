@@ -29,3 +29,17 @@ class Tools(db.Model):
     
     def __repr__(self):
         return "Tool {}: {} (Brand: {})".format(self.id, self.tool_name, self.brand_name)
+
+class RecipeTool(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+
+    # Foreign keys
+    recipe_id = db.Column(db.Integer, db.ForeignKey('recipe.id'), nullable=False)
+    tool_id = db.Column(db.Integer, db.ForeignKey('tool.id'), nullable=False)
+
+    # Relationships
+    recipe = db.relationship('Recipe', backref=db.backref('recipe_tools', lazy=True))
+    tool = db.relationship('Tool', backref=db.backref('recipe_tools', lazy=True))
+
+    def __repr__(self):
+        return "RecipeTool {}: Recipe {}, Tool {}".format(self.id, self.recipe_id, self.tool_id)
