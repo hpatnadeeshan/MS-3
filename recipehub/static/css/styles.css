@@ -10913,14 +10913,17 @@ hr.divider-light {
     background-color: #fff;
   }
   #mainNav.navbar-shrink .navbar-brand {
-    color: #212529;
+    color: #ffc107;
   }
   #mainNav.navbar-shrink .navbar-brand:hover {
     color: #f4623a;
   }
-  #mainNav.navbar-shrink .navbar-nav .nav-item .nav-link {
+  /* #mainNav.navbar-shrink .navbar-nav .nav-item .nav-link {
     color: #212529;
-  }
+  } */
+  #mainNav.navbar-shrink .navbar-nav .nav-item .nav-link {
+    color: #ffc107;
+}
   #mainNav.navbar-shrink .navbar-nav .nav-item .nav-link:hover {
     color: #f4623a;
   }
