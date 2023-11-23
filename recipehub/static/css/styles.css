@@ -10988,7 +10988,7 @@ header.masthead h1, header.masthead .h1 {
   text-transform: uppercase;
 }
 #explore .container-fluid .portfolio-box .portfolio-box-caption .project-name, #explore .container-sm .portfolio-box .portfolio-box-caption .project-name, #explore .container-md .portfolio-box .portfolio-box-caption .project-name, #explore .container-lg .portfolio-box .portfolio-box-caption .project-name, #explore .container-xl .portfolio-box .portfolio-box-caption .project-name, #explore .container-xxl .portfolio-box .portfolio-box-caption .project-name {
-  font-size: 1.2rem;
+  font-size: 1.8rem;
 }
 #explore .container-fluid .portfolio-box:hover .portfolio-box-caption, #explore .container-sm .portfolio-box:hover .portfolio-box-caption, #explore .container-md .portfolio-box:hover .portfolio-box-caption, #explore .container-lg .portfolio-box:hover .portfolio-box-caption, #explore .container-xl .portfolio-box:hover .portfolio-box-caption, #explore .container-xxl .portfolio-box:hover .portfolio-box-caption {
   opacity: 1;
