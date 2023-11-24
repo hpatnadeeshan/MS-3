@@ -18,4 +18,6 @@ def home():
 def view_recipe(recipe_id):
     recipe = Recipe.query.get(recipe_id)
 
-    return render_template('recipe.html', recipe=recipe)
+    tools = db.session.query(Tools).join(RecipeTool).filter(RecipeTool.recipe_id == recipe_id).all()
+
+    return render_template('recipe.html', recipe=recipe, tools=tools)
