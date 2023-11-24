@@ -24,7 +24,15 @@
                 {% endfor %}
             </ul>
 
-
+            {% if tools %}
+            <h3>Required Tools:</h3>
+            <ul>
+                {% for tool in tools %}
+                    <li>{{ tool.tool_name }}{% if tool.brand_name and tool.brand_name != 'Any' %} (Brand: {{ tool.brand_name }}){% endif %}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        
         </div>
     </div>
 
