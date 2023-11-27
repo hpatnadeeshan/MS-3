@@ -29,19 +29,29 @@ def add_recipe():
     cuisines = list(Cuisine.query.order_by(Cuisine.cuisine_name).all())
     tools = list(Tools.query.order_by(Tools.tool_name).all())
 
+
     if request.method == 'POST':
 
        # Create a new recipe
         new_recipe = Recipe(
             recipe_name=request.form.get('recipe_name'),
-            cuisine_id=Cuisine.query.filter_by(
-                cuisine_name=request.form.get('cuisine_name')).first().id,
+            cuisine_id=request.form.get('cuisine_name'),
             ingredients=request.form.get('ingredients'),
-            preparation_steps=request.form.get('preparation_steps'),       
+            preparation_steps=request.form.get('preparation_steps'),
             image_link=request.form.get('image_link')
         )
 
         db.session.add(new_recipe)
+        db.session.commit()
+
+        selected_tools = request.form.getlist('required_tools[]')
+        print(selected_tools)
+        print(new_recipe.id)
+        for tool_id in selected_tools:
+            recipe_tool = RecipeTool(
+                recipe_id=new_recipe.id, tool_id=int(tool_id))
+            db.session.add(recipe_tool)
+
         db.session.commit()
 
         return redirect(url_for("add_recipe"))
