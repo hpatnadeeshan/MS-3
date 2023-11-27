@@ -11001,7 +11001,12 @@ header.masthead h1, header.masthead .h1 {
 }
 
 /* fixed heights for the cards */
-.card-img {
+.card-img-top {
     object-fit: cover;
     height: 200px; 
+}
+/* Make the image responsive */
+.card-img-top.img-fluid {
+    width: 100%;
+    height: auto;
 }
