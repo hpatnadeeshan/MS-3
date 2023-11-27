@@ -21,3 +21,13 @@ def view_recipe(recipe_id):
     tools = db.session.query(Tools).join(RecipeTool).filter(RecipeTool.recipe_id == recipe_id).all()
 
     return render_template('recipe.html', recipe=recipe, tools=tools)
+
+
+
+@app.route('/add_recipe', methods=['GET', 'POST'])
+def add_recipe():
+       # If the request method is GET, render the add_recipe.html template
+    cuisines = list(Cuisine.query.order_by(Cuisine.cuisine_name).all())
+    tools = list(Tools.query.order_by(Tools.tool_name).all())
+
+    return render_template('add_recipe.html', cuisines=cuisines, tools=tools)
