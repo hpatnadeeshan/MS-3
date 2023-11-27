@@ -10999,3 +10999,9 @@ header.masthead h1, header.masthead .h1 {
 .add-recipe-container{
     margin-top: 100px;
 }
+
+/* fixed heights for the cards */
+.card-img {
+    object-fit: cover;
+    height: 200px; 
+}
