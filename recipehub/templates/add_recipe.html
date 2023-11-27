@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+
+            <h2>Add Recipe</h2>
+
+            <form method="post" action="{{ url_for('add_recipe') }}">
+                <!-- Recipe Name -->
+                <div class="mb-3">
+                    <label for="recipe_name" class="form-label">Recipe Name</label>
+                    <input type="text" class="form-control" id="recipe_name" name="recipe_name" required>
+                </div>
+
+                <!-- Cuisine Type -->
+                <div class="mb-3">
+                    <label for="cuisine_name" class="form-label">Cuisine Type</label>
+                    <select class="form-select" id="cuisine_name" name="cuisine_name" required>
+
+                    </select>
+                </div>
+
+                <!-- Ingredients -->
+                <div class="mb-3">
+                    <label for="ingredients" class="form-label">Ingredients</label>
+                    <textarea class="form-control" id="ingredients" name="ingredients" rows="3" required></textarea>
+                </div>
+
+                <!-- Preparation Steps -->
+                <div class="mb-3">
+                    <label for="preparation_steps" class="form-label">Preparation Steps</label>
+                    <textarea class="form-control" id="preparation_steps" name="preparation_steps" rows="5" required></textarea>
+                </div>
+
+                <!-- Required Tools -->
+                <div class="mb-3">
+                    <label for="required_tools" class="form-label">Required Tools</label>
+                    <select multiple class="form-select" id="required_tools" name="required_tools[]" required>
+
+                    </select>
+                </div>
+
+                <!-- Image Link -->
+                <div class="mb-3">
+                    <label for="image_link" class="form-label">Image Link</label>
+                    <input type="text" class="form-control" id="image_link" name="image_link">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Add Recipe</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
