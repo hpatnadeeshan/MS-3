@@ -63,5 +63,16 @@ def add_recipe():
 def explore_recipes():
     
     recipes = Recipe.query.all()
+    cuisines = Cuisine.query.all()
+    
+    # Filter recipes based on user selection
+    selected_cuisine_id = request.args.get('cuisine')
+    # print(f"Cuisine ID: {selected_cuisine}")
+    # print(recipes)
+    print(cuisines)
+    selected_cuisine = None
+    if selected_cuisine_id:
+        selected_cuisine = Cuisine.query.get(selected_cuisine_id)
+        recipes = Recipe.query.filter_by(cuisine_id=selected_cuisine_id).all()
 
-    return render_template('recipe_explore.html', recipes=recipes)
+    return render_template('recipe_explore.html', recipes=recipes, cuisines=cuisines, selected_cuisine=selected_cuisine)
