@@ -74,5 +74,12 @@ def explore_recipes():
     if selected_cuisine_id:
         selected_cuisine = Cuisine.query.get(selected_cuisine_id)
         recipes = Recipe.query.filter_by(cuisine_id=selected_cuisine_id).all()
+    
+    
+    # Search recipes based on user input
+    search_query = request.args.get('search')
+    if search_query:
+        # Adjust the following line to match your search logic in the database
+        recipes = Recipe.query.filter(Recipe.recipe_name.ilike(f'%{search_query}%')).all()
 
     return render_template('recipe_explore.html', recipes=recipes, cuisines=cuisines, selected_cuisine=selected_cuisine)

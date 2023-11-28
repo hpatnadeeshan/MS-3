@@ -2,21 +2,40 @@
 {% block content %}
 <div class="recipe-explore-container">
     <h2>Explore Recipes</h2>
-    <!-- Filter options -->
-    <form method="get" action="{{ url_for('explore_recipes') }}">
-        <label for="cuisine">Select Cuisine:</label>
-        <select name="cuisine" id="cuisine">
-            <option value="" {% if not selected_cuisine %}selected{% endif %}>
-                All
-            </option>            
-            {% for cuisine in cuisines %}
-                <option value="{{ cuisine.id }}" {% if selected_cuisine and cuisine.id == selected_cuisine.id %}selected{% endif %}>
-                    {{ cuisine.cuisine_name }}
-                </option>
-            {% endfor %}
-        </select>
-        <button type="submit">Filter</button>
-    </form>
+    <div class="row gx-4 gx-lg-5 justify-content-between">
+        <div class="col-lg-4 col-md-6 mb-3">
+            <!-- Search Bar -->
+            <form method="get" action="{{ url_for('explore_recipes') }}">
+                <label for="search">Search Recipes:</label>
+                <div class="input-group">
+                    <input type="text" name="search" id="search" class="form-control" placeholder="Enter keywords">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+            </form>
+        </div>
+        
+        <div class="col-lg-4 col-md-6 mb-3">
+            <!-- Filter Options -->
+            <form method="get" action="{{ url_for('explore_recipes') }}">
+                <label for="cuisine">Select Cuisine:</label>
+                <div class="input-group">
+                    <select name="cuisine" id="cuisine" class="form-select">
+                        <option value="" {% if not selected_cuisine %}selected{% endif %}>
+                            All
+                        </option>            
+                        {% for cuisine in cuisines %}
+                            <option value="{{ cuisine.id }}" {% if selected_cuisine and cuisine.id == selected_cuisine.id %}selected{% endif %}>
+                                {{ cuisine.cuisine_name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                    <button type="submit" class="btn btn-primary">Filter</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    
     
     <!-- Display recipes -->
     <div class="row">
