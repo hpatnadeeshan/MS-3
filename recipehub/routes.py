@@ -57,3 +57,11 @@ def add_recipe():
         return redirect(url_for("add_recipe"))
 
     return render_template('add_recipe.html', cuisines=cuisines, tools=tools)
+
+
+@app.route('/explore_recipes')
+def explore_recipes():
+    
+    recipes = Recipe.query.all()
+
+    return render_template('recipe_explore.html', recipes=recipes)
