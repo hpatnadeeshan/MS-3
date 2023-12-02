@@ -153,3 +153,26 @@ def add_tool():
         return redirect(url_for('list_tools'))
 
     return render_template('add_tool.html')
+
+@app.route('/edit_cuisine/<int:cuisine_id>', methods=['GET', 'POST'])
+def edit_cuisine(cuisine_id):
+    cuisine = Cuisine.query.get_or_404(cuisine_id)
+
+    if request.method == 'POST':
+        cuisine.cuisine_name = request.form['cuisine_name']
+        db.session.commit()
+        return redirect(url_for('list_cuisines'))
+
+    return render_template('edit_cuisine.html', cuisine=cuisine)
+
+@app.route('/edit_tool/<int:tool_id>', methods=['GET', 'POST'])
+def edit_tool(tool_id):
+    tool = Tools.query.get_or_404(tool_id)
+
+    if request.method == 'POST':
+        tool.tool_name = request.form['tool_name']
+        tool.brand_name = request.form['brand_name']
+        db.session.commit()
+        return redirect(url_for('list_tools'))
+
+    return render_template('edit_tool.html', tool=tool)
