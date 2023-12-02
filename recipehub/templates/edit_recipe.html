@@ -1,5 +1,67 @@
 {% extends "base.html" %}
 {% block content %}
+<div class="add-recipe-container">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+
+            <h2>Edit Recipe</h2>
+            <form method="post" action="{{ url_for('edit_recipe', recipe_id=recipe.id) }}">
+                <!-- Recipe Name -->
+                <div class="mb-3">
+                    <label for="recipe_name" class="form-label">Recipe Name</label>
+                    <input type="text" class="form-control" id="recipe_name" name="recipe_name" value="{{ recipe.recipe_name }}"  required>
+                </div>
+
+                <!-- Cuisine Type -->
+                <div class="mb-3">
+                    <label for="cuisine_name" class="form-label">Cuisine Type</label>
+                    <select class="form-select" id="cuisine_name" name="cuisine_name" required>
+                        {% for cuisine in cuisines %}
+                            <option value="{{ cuisine.id }}" {% if cuisine.id == recipe.cuisine_id %}selected{% endif %}>
+                                {{ cuisine.cuisine_name }}
+                            </option>
+                        {% endfor %}
+                    </select>                                      
+                </div>
+
+                <!-- Ingredients -->
+                <div class="mb-3">
+                    <label for="ingredients" class="form-label">Ingredients</label>
+                    <textarea class="form-control" id="ingredients" name="ingredients" rows="3" required>{{ recipe.ingredients }}</textarea>
+                </div>
+
+                <!-- Preparation Steps -->
+                <div class="mb-3">
+                    <label for="preparation_steps" class="form-label">Preparation Steps</label>
+                    <textarea class="form-control" id="preparation_steps" name="preparation_steps" rows="5" required>{{ recipe.preparation_steps }}</textarea>
+                </div>
+
+                <!-- Required Tools -->
+                <div class="mb-3">
+                    <label for="required_tools" class="form-label">Required Tools</label>
+                    <select id="required_tools" name="required_tools[]" multiple class="form-select selectpicker"
+                        multiple data-live-search="true">
+                        {% for tool in tools %}
+                        <option value="{{ tool.id }}">{{ tool.tool_name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div id="selectedToolsContainer">
+                    <p id="selectedToolsList"></p>
+
+                </div>
 
 
+                <!-- Image Link -->
+                <div class="mb-3">
+                    <label for="image_link">Image Link:</label>
+                    <input type="text" class="form-control" name="image_link" value="{{ recipe.image_link }}" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Save changes</button>
+            </form>
+
+        </div>
+    </div>
+</div>
 {% endblock %}
