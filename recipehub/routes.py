@@ -128,3 +128,28 @@ def delete_recipe(recipe_id):
 
     # Redirect to the recipe explore page or any other appropriate page
     return redirect(url_for('explore_recipes'))
+
+
+
+@app.route('/add_cuisine', methods=['GET', 'POST'])
+def add_cuisine():
+    if request.method == 'POST':
+        cuisine_name = request.form['cuisine_name']
+        new_cuisine = Cuisine(cuisine_name=cuisine_name)
+        db.session.add(new_cuisine)
+        db.session.commit()
+        return redirect(url_for('list_cuisines'))
+
+    return render_template('add_cuisine.html')
+
+@app.route('/add_tool', methods=['GET', 'POST'])
+def add_tool():
+    if request.method == 'POST':
+        tool_name = request.form['tool_name']
+        brand_name = request.form['brand_name']
+        new_tool = Tools(tool_name=tool_name, brand_name=brand_name)
+        db.session.add(new_tool)
+        db.session.commit()
+        return redirect(url_for('list_tools'))
+
+    return render_template('add_tool.html')
