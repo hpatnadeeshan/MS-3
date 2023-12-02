@@ -77,9 +77,15 @@ def edit_recipe(recipe_id):
         # Redirect to the view recipe page after editing
         return redirect(url_for('view_recipe', recipe_id=recipe.id))
 
+    
+    tools = Tools.query.order_by(Tools.tool_name).all()
+
+    # Retrieve associated tools for the selected recipe
+    associated_tools = [recipe_tool.tool_id for recipe_tool in RecipeTool.query.filter_by(recipe_id=recipe_id).all()]
+    # associated_tools = RecipeTool.query.filter_by(recipe_id=recipe_id).all()
     cuisines = list(Cuisine.query.order_by(Cuisine.cuisine_name).all())
 
-    return render_template('edit_recipe.html', recipe=recipe, cuisines=cuisines)
+    return render_template('edit_recipe.html', recipe=recipe, cuisines=cuisines, tools=tools, associated_tools=associated_tools)
 
 
 @app.route('/explore_recipes')
