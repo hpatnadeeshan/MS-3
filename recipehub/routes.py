@@ -176,3 +176,17 @@ def edit_tool(tool_id):
         return redirect(url_for('list_tools'))
 
     return render_template('edit_tool.html', tool=tool)
+
+@app.route('/delete_cuisine/<int:cuisine_id>', methods=['POST'])
+def delete_cuisine(cuisine_id):
+    cuisine = Cuisine.query.get_or_404(cuisine_id)
+    db.session.delete(cuisine)
+    db.session.commit()
+    return redirect(url_for('list_cuisines'))
+
+@app.route('/delete_tool/<int:tool_id>', methods=['POST'])
+def delete_tool(tool_id):
+    tool = Tools.query.get_or_404(tool_id)
+    db.session.delete(tool)
+    db.session.commit()
+    return redirect(url_for('list_tools'))
