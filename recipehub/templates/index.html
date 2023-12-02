@@ -17,7 +17,7 @@
                     discover a variety of culinary delights shared by our community of food enthusiasts.
                     Start your culinary journey now!
                 </p>
-                <a class="btn btn-primary btn-xl" href="#">Explore</a>
+                <a class="btn btn-primary btn-xl" href="{{ url_for('explore_recipes') }}">Explore</a>
             </div>
         </div>
     </div>
@@ -135,7 +135,7 @@
         <hr class="divider" />
         <div class="row g-0">
             <div class="col-lg-4 col-sm-6">
-                <a class="portfolio-box" href="" title="Indian Cuisine">
+                <a class="portfolio-box" href="{{ url_for('explore_recipes',cuisine='5') }}" title="Indian Cuisine">
                     <img class="img-fluid"
                         src="{{ url_for('static', filename='assets/img/portfolio/thumbnails/1.jpg') }}" alt="..." />
                     <div class="portfolio-box-caption">
@@ -147,7 +147,7 @@
                 </a>
             </div>
             <div class="col-lg-4 col-sm-6">
-                <a class="portfolio-box" href="" title="Mexican Cuisine">
+                <a class="portfolio-box" href="{{ url_for('explore_recipes',cuisine='4') }}"  title="Mexican Cuisine">
                     <img class="img-fluid"
                         src="{{ url_for('static', filename='assets/img/portfolio/thumbnails/2.jpg') }}" alt="..." />
                     <div class="portfolio-box-caption">
@@ -160,7 +160,7 @@
                 </a>
             </div>
             <div class="col-lg-4 col-sm-6">
-                <a class="portfolio-box" href="" title="Chinese Cuisine">
+                <a class="portfolio-box" href="{{ url_for('explore_recipes',cuisine='2') }}"  title="Chinese Cuisine">
                     <img class="img-fluid"
                         src="{{ url_for('static', filename='assets/img/portfolio/thumbnails/3.jpg') }}" alt="..." />
                     <div class="portfolio-box-caption">
@@ -172,7 +172,7 @@
                 </a>
             </div>
             <div class="col-lg-4 col-sm-6">
-                <a class="portfolio-box" href="" title="Italian Cuisine">
+                <a class="portfolio-box" href="{{ url_for('explore_recipes',cuisine='1') }}"  title="Italian Cuisine">
                     <img class="img-fluid"
                         src="{{ url_for('static', filename='assets/img/portfolio/thumbnails/4.jpg') }}" alt="..." />
                     <div class="portfolio-box-caption">
@@ -184,7 +184,7 @@
                 </a>
             </div>
             <div class="col-lg-4 col-sm-6">
-                <a class="portfolio-box" href="" title="Japanese Cuisine">
+                <a class="portfolio-box" href="{{ url_for('explore_recipes',cuisine='3') }}"  title="Japanese Cuisine">
                     <img class="img-fluid"
                         src="{{ url_for('static', filename='assets/img/portfolio/thumbnails/5.jpg') }}" alt="..." />
                     <div class="portfolio-box-caption">
@@ -196,7 +196,7 @@
                 </a>
             </div>
             <div class="col-lg-4 col-sm-6">
-                <a class="portfolio-box" href="" title="Mediterranean Cuisine">
+                <a class="portfolio-box" href="{{ url_for('explore_recipes',cuisine='6') }}"  title="Mediterranean Cuisine">
                     <img class="img-fluid"
                         src="{{ url_for('static', filename='assets/img/portfolio/thumbnails/6.jpg') }}" alt="..." />
                     <div class="portfolio-box-caption p-3">
