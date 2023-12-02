@@ -151,8 +151,20 @@ def add_tool():
         db.session.add(new_tool)
         db.session.commit()
         return redirect(url_for('list_tools'))
-
     return render_template('add_tool.html')
+
+    
+
+@app.route('/list_cuisines')
+def list_cuisines():
+    cuisines = Cuisine.query.all()
+    return render_template('list_cuisines.html', cuisines=cuisines)
+
+@app.route('/list_tools')
+def list_tools():
+    tools = Tools.query.all()
+    return render_template('list_tools.html', tools=tools)
+
 
 @app.route('/edit_cuisine/<int:cuisine_id>', methods=['GET', 'POST'])
 def edit_cuisine(cuisine_id):
