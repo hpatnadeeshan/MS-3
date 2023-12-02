@@ -18,6 +18,9 @@ class Recipe(db.Model):
     cuisine_id = db.Column(db.Integer, db.ForeignKey('cuisine.id'), nullable=False)
     cuisine = db.relationship('Cuisine', backref=db.backref('recipes', lazy=True))
 
+    recipe_tool = db.relationship('RecipeTool', backref='recipe', lazy=True, cascade='all, delete-orphan')
+
+
     def __repr__(self):
         return "Recipe {}: {}".format(self.id, self.recipe_name)
 
@@ -39,7 +42,7 @@ class RecipeTool(db.Model):
     tool_id = db.Column(db.Integer, db.ForeignKey('tools.id'), nullable=False)
 
     # Relationships
-    recipe = db.relationship('Recipe', backref=db.backref('recipe_tools', lazy=True))
+    # recipe = db.relationship('Recipe', backref=db.backref('recipe_tools', lazy=True))
     tool = db.relationship('Tools', backref=db.backref('recipe_tools', lazy=True))
 
     def __repr__(self):
