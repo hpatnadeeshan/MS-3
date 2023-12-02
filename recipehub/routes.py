@@ -1,5 +1,5 @@
 from .models import Recipe, Cuisine
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request, redirect, url_for,flash
 from recipehub import app, db
 from recipehub.models import Cuisine, Recipe, Tools, RecipeTool
 import random
@@ -66,7 +66,7 @@ def edit_recipe(recipe_id):
     if request.method == 'POST':
         # Update the recipe details based on the form submission
         recipe.recipe_name = request.form['recipe_name']
-        recipe.cuisine_id = request.form['cuisine_id']
+        recipe.cuisine_id = request.form['cuisine_name']
         recipe.ingredients = request.form['ingredients']
         recipe.preparation_steps = request.form['preparation_steps']
         recipe.image_link = request.form['image_link']
@@ -112,3 +112,19 @@ def explore_recipes():
             Recipe.recipe_name.ilike(f'%{search_query}%')).all()
 
     return render_template('recipe_explore.html', recipes=recipes, cuisines=cuisines, selected_cuisine=selected_cuisine)
+
+
+    
+@app.route('/delete_recipe/<int:recipe_id>', methods=['POST'])
+def delete_recipe(recipe_id):
+    # Retrieve the recipe to be deleted
+    recipe = Recipe.query.get(recipe_id)
+
+    # Check if the recipe exists
+    if recipe:
+        # Delete the recipe from the database
+        db.session.delete(recipe)
+        db.session.commit()
+
+    # Redirect to the recipe explore page or any other appropriate page
+    return redirect(url_for('explore_recipes'))
