@@ -37,19 +37,36 @@
                 </div>
 
                 <!-- Required Tools -->
+
                 <div class="mb-3">
                     <label for="required_tools" class="form-label">Required Tools</label>
                     <select id="required_tools" name="required_tools[]" multiple class="form-select selectpicker"
-                        multiple data-live-search="true">
+                            multiple data-live-search="true">
                         {% for tool in tools %}
-                        <option value="{{ tool.id }}">{{ tool.tool_name }}</option>
+                        <option value="{{ tool.id }}" {% if tool.id in associated_tools %}selected{% endif %}>
+                            {{ tool.tool_name }}
+                        </option>
+                        
                         {% endfor %}
                     </select>
-                </div>
-                <div id="selectedToolsContainer">
-                    <p id="selectedToolsList"></p>
 
                 </div>
+
+                <div id="selectedToolsContainer">
+                    <p id="selectedToolsList">
+                        {% for associated_tool in associated_tools %}
+                            {% for tool in tools %}
+                                {% if associated_tool == tool.id %}
+                                    {{ tool.tool_name }}
+                                {% endif %}
+                            {% endfor %}
+                            {% if not loop.last %}, {% endif %}
+                        {% endfor %}
+                    </p>
+                </div>
+                
+                
+                
 
 
                 <!-- Image Link -->
