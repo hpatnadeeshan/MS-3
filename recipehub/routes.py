@@ -1,3 +1,4 @@
+from .models import Recipe, Cuisine
 from flask import render_template, request, redirect, url_for
 from recipehub import app, db
 from recipehub.models import Cuisine, Recipe, Tools, RecipeTool
@@ -23,10 +24,8 @@ def view_recipe(recipe_id):
     return render_template('recipe.html', recipe=recipe, tools=tools)
 
 
-
 @app.route('/add_recipe', methods=['GET', 'POST'])
 def add_recipe():
-    # If the request method is GET, render the add_recipe.html template
     cuisines = list(Cuisine.query.order_by(Cuisine.cuisine_name).all())
     tools = list(Tools.query.order_by(Tools.tool_name).all())
 
@@ -59,12 +58,36 @@ def add_recipe():
     return render_template('add_recipe.html', cuisines=cuisines, tools=tools)
 
 
+@app.route('/edit_recipe/<int:recipe_id>', methods=['GET', 'POST'])
+def edit_recipe(recipe_id):
+    # Retrieve the recipe to be edited
+    recipe = Recipe.query.get(recipe_id)
+
+    if request.method == 'POST':
+        # Update the recipe details based on the form submission
+        recipe.recipe_name = request.form['recipe_name']
+        recipe.cuisine_id = request.form['cuisine_id']
+        recipe.ingredients = request.form['ingredients']
+        recipe.preparation_steps = request.form['preparation_steps']
+        recipe.image_link = request.form['image_link']
+
+        # Update the recipe in the database
+        db.session.commit()
+
+        # Redirect to the view recipe page after editing
+        return redirect(url_for('view_recipe', recipe_id=recipe.id))
+
+    cuisines = list(Cuisine.query.order_by(Cuisine.cuisine_name).all())
+
+    return render_template('edit_recipe.html', recipe=recipe, cuisines=cuisines)
+
+
 @app.route('/explore_recipes')
 def explore_recipes():
-    
+
     recipes = Recipe.query.all()
     cuisines = Cuisine.query.all()
-    
+
     # Filter recipes based on user selection
     selected_cuisine_id = request.args.get('cuisine')
     # print(f"Cuisine ID: {selected_cuisine}")
@@ -74,12 +97,12 @@ def explore_recipes():
     if selected_cuisine_id:
         selected_cuisine = Cuisine.query.get(selected_cuisine_id)
         recipes = Recipe.query.filter_by(cuisine_id=selected_cuisine_id).all()
-    
-    
+
     # Search recipes based on user input
     search_query = request.args.get('search')
     if search_query:
         # Adjust the following line to match your search logic in the database
-        recipes = Recipe.query.filter(Recipe.recipe_name.ilike(f'%{search_query}%')).all()
+        recipes = Recipe.query.filter(
+            Recipe.recipe_name.ilike(f'%{search_query}%')).all()
 
     return render_template('recipe_explore.html', recipes=recipes, cuisines=cuisines, selected_cuisine=selected_cuisine)
