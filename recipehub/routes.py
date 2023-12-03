@@ -11,7 +11,7 @@ def load_user(user_id):
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    print("login"+current_user.is_authenticated)
+    print("login: " + str(current_user.is_authenticated))
     errors = []
     if request.method == 'POST':
         username = request.form['username']
@@ -58,7 +58,7 @@ def signup():
 def logout():
     logout_user()
     flash('Logout successful!', 'success')
-    print("logout"+current_user.is_authenticated)
+    print("logout"+str(current_user.is_authenticated))
     return redirect(url_for('home'))
 
 @app.route("/")
