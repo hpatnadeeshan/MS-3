@@ -47,9 +47,12 @@
                         <a class="nav-link" href="{{ url_for('add_recipe') }}">Add Recipe</a>
                     </li>
                     {% endif %}
+                    {% if not current_user.is_authenticated %}
+                    <!-- Show "Login/SignUp" links only when not logged in -->
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('login') }}">Login/SignUp</a>
                     </li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
