@@ -18,8 +18,8 @@ class Recipe(db.Model):
     # Foreign keys
     cuisine_id = db.Column(db.Integer, db.ForeignKey('cuisine.id'), nullable=False)
     cuisine = db.relationship('Cuisine', backref=db.backref('recipes', lazy=True))
-    # user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-    # user = db.relationship('User', backref=db.backref('recipes', lazy=True))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    user = db.relationship('User', backref=db.backref('recipes', lazy=True))
 
     recipe_tool = db.relationship('RecipeTool', backref='recipe', lazy=True, cascade='all, delete-orphan')
 
