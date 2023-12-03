@@ -7,5 +7,5 @@ itsdangerous==2.1.2
 psycopg2==2.9.9
 SQLAlchemy==2.0.23
 Werkzeug==3.0.1
-Flask-Login==0.5.0
+Flask-Login==0.6.3
 
