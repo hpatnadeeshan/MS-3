@@ -132,7 +132,7 @@ def delete_recipe(recipe_id):
 @app.route('/manage_data')
 def manage_data():
     cuisines = Cuisine.query.all()
-    tools = Tool.query.all()
+    tools = Tools.query.all()
     return render_template('manage_data.html', cuisines=cuisines, tools=tools)
 
 @app.route('/add_cuisine', methods=['GET', 'POST'])
@@ -142,9 +142,9 @@ def add_cuisine():
         new_cuisine = Cuisine(cuisine_name=cuisine_name)
         db.session.add(new_cuisine)
         db.session.commit()
-        return redirect(url_for('list_cuisines'))
+        return redirect(url_for('manage_data'))
 
-    return render_template('add_cuisine.html')
+    # return render_template('manage_data.html')
 
 @app.route('/add_tool', methods=['GET', 'POST'])
 def add_tool():
@@ -154,20 +154,8 @@ def add_tool():
         new_tool = Tools(tool_name=tool_name, brand_name=brand_name)
         db.session.add(new_tool)
         db.session.commit()
-        return redirect(url_for('list_tools'))
-    return render_template('add_tool.html')
-
-    
-
-@app.route('/list_cuisines')
-def list_cuisines():
-    cuisines = Cuisine.query.all()
-    return render_template('list_cuisines.html', cuisines=cuisines)
-
-@app.route('/list_tools')
-def list_tools():
-    tools = Tools.query.all()
-    return render_template('list_tools.html', tools=tools)
+        return redirect(url_for('manage_data'))
+    # return render_template('manage_data.html')
 
 
 @app.route('/edit_cuisine/<int:cuisine_id>', methods=['GET', 'POST'])
@@ -177,9 +165,9 @@ def edit_cuisine(cuisine_id):
     if request.method == 'POST':
         cuisine.cuisine_name = request.form['cuisine_name']
         db.session.commit()
-        return redirect(url_for('list_cuisines'))
+        return redirect(url_for('manage_data'))
 
-    return render_template('edit_cuisine.html', cuisine=cuisine)
+    # return render_template('edit_cuisine.html', cuisine=cuisine)
 
 @app.route('/edit_tool/<int:tool_id>', methods=['GET', 'POST'])
 def edit_tool(tool_id):
@@ -189,20 +177,20 @@ def edit_tool(tool_id):
         tool.tool_name = request.form['tool_name']
         tool.brand_name = request.form['brand_name']
         db.session.commit()
-        return redirect(url_for('list_tools'))
+        return redirect(url_for('manage_data'))
 
-    return render_template('edit_tool.html', tool=tool)
+    # return render_template('edit_tool.html', tool=tool)
 
 @app.route('/delete_cuisine/<int:cuisine_id>', methods=['POST'])
 def delete_cuisine(cuisine_id):
     cuisine = Cuisine.query.get_or_404(cuisine_id)
     db.session.delete(cuisine)
     db.session.commit()
-    return redirect(url_for('list_cuisines'))
+    return redirect(url_for('manage_data'))
 
 @app.route('/delete_tool/<int:tool_id>', methods=['POST'])
 def delete_tool(tool_id):
     tool = Tools.query.get_or_404(tool_id)
     db.session.delete(tool)
     db.session.commit()
-    return redirect(url_for('list_tools'))
+    return redirect(url_for('manage_data'))
