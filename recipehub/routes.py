@@ -1,6 +1,6 @@
 from flask_login import login_user, logout_user, login_required, current_user
 from werkzeug.security import check_password_hash, generate_password_hash
-from flask import render_template, request, redirect, url_for,flash
+from flask import render_template, request, redirect, url_for,flash,jsonify
 from recipehub import app, db,login_manager
 from recipehub.models import Cuisine, Recipe, Tools, RecipeTool, User
 import random
@@ -211,6 +211,15 @@ def add_cuisine():
         new_cuisine = Cuisine(cuisine_name=cuisine_name)
         db.session.add(new_cuisine)
         db.session.commit()
+                 # Check Referer header to determine where the request came from
+        referer = request.headers.get('Referer')
+        if referer and 'add_recipe' in referer:
+            # If the request is coming from add_recipe.html, return a response to close the modal
+            return redirect(url_for('add_recipe'))
+        else:
+            # If the request is coming from any other page, redirect to manage_data
+            return redirect(url_for('manage_data'))
+
         return redirect(url_for('manage_data'))
 
     # return render_template('manage_data.html')
@@ -224,6 +233,15 @@ def add_tool():
         new_tool = Tools(tool_name=tool_name, brand_name=brand_name)
         db.session.add(new_tool)
         db.session.commit()
+         # Check Referer header to determine where the request came from
+        referer = request.headers.get('Referer')
+        if referer and 'add_recipe' in referer:
+            # If the request is coming from add_recipe.html, return a response to close the modal
+            return redirect(url_for('add_recipe'))
+        else:
+            # If the request is coming from any other page, redirect to manage_data
+            return redirect(url_for('manage_data'))
+
         return redirect(url_for('manage_data'))
     # return render_template('manage_data.html')
 
