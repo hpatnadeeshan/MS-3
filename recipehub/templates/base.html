@@ -41,10 +41,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('explore_recipes') }}">Recipe Explore</a>
                     </li>
-                    <!-- temporary  -->
+                    {% if current_user.is_authenticated %}
+                    <!-- Show "Add Recipe" link only when logged in -->
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('add_recipe') }}">Add Recipe</a>
                     </li>
+                    {% endif %}
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('login') }}">Login/SignUp</a>
                     </li>
@@ -54,7 +56,7 @@
     </nav>
 
     <!-- Navigation -->
-<!-- <nav class="navbar navbar-expand-lg {% if not is_index %}navbar-dark bg-dark{% else %}navbar-light{% endif %} fixed-top py-3">
+    <!-- <nav class="navbar navbar-expand-lg {% if not is_index %}navbar-dark bg-dark{% else %}navbar-light{% endif %} fixed-top py-3">
     <div class="container px-4 px-lg-5">
         <a class="navbar-brand" href="#page-top">Recipe Hub</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
@@ -95,7 +97,7 @@
         <div class="container px-4 px-lg-5">
             <div class="small text-center text-muted">
                 <a class="nav-link" href="{{ url_for('manage_data') }}">Manage data</a>
-                
+
                 Copyright &copy; 2023 - Company Name
             </div>
         </div>
@@ -130,28 +132,28 @@
     <!--  custom scripts -->
     <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
     <script>
-    $(document).ready(function () {
-        // Initialize Bootstrap Select
-        $('.selectpicker').selectpicker();
+        $(document).ready(function () {
+            // Initialize Bootstrap Select
+            $('.selectpicker').selectpicker();
 
-        // Handle change event on the select element
-        $('#required_tools').on('changed.bs.select', function (e, clickedIndex, isSelected, previousValue) {
-            // Get the selected options
-            var selectedOptions = $(this).val();
+            // Handle change event on the select element
+            $('#required_tools').on('changed.bs.select', function (e, clickedIndex, isSelected, previousValue) {
+                // Get the selected options
+                var selectedOptions = $(this).val();
 
-            // Update the list of selected tools
-            var selectedToolsList = $('#selectedToolsList');
-            selectedToolsList.empty(); // Clear the list
+                // Update the list of selected tools
+                var selectedToolsList = $('#selectedToolsList');
+                selectedToolsList.empty(); // Clear the list
 
-            // Populate the list with selected tools
-            if (selectedOptions) {
-                selectedOptions.forEach(function (option, index) {
-                    var toolName = $('#required_tools option[value="' + option + '"]').text();
-                    selectedToolsList.append('<span>' + toolName + (index < selectedOptions.length - 1 ? ', ' : '') + '</span>');
-                });
-            }
+                // Populate the list with selected tools
+                if (selectedOptions) {
+                    selectedOptions.forEach(function (option, index) {
+                        var toolName = $('#required_tools option[value="' + option + '"]').text();
+                        selectedToolsList.append('<span>' + toolName + (index < selectedOptions.length - 1 ? ', ' : '') + '</span>');
+                    });
+                }
+            });
         });
-    });
     </script>
 
 
