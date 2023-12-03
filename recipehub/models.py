@@ -29,6 +29,8 @@ class Tools(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     tool_name = db.Column(db.String(255), nullable=False)
     brand_name = db.Column(db.String(255))
+
+    recipe_tool2 = db.relationship('RecipeTool', backref='tools', lazy=True, cascade='all, delete-orphan')
     
     def __repr__(self):
         return "Tool {}: {} (Brand: {})".format(self.id, self.tool_name, self.brand_name)
@@ -43,7 +45,7 @@ class RecipeTool(db.Model):
 
     # Relationships
     # recipe = db.relationship('Recipe', backref=db.backref('recipe_tools', lazy=True))
-    tool = db.relationship('Tools', backref=db.backref('recipe_tools', lazy=True))
+    # tool = db.relationship('Tools', backref=db.backref('recipe_tools', lazy=True))
 
     def __repr__(self):
         return "RecipeTool {}: Recipe {}, Tool {}".format(self.id, self.recipe_id, self.tool_id)
