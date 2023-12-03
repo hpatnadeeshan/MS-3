@@ -6,7 +6,7 @@ import random
 
 
 @app.route("/")
-def home():
+def home():   
     recipes = Recipe.query.all()
     # print(recipes[1])
     random_recipes = random.sample(recipes, 4)
@@ -131,8 +131,8 @@ def delete_recipe(recipe_id):
 
 @app.route('/manage_data')
 def manage_data():
-    cuisines = Cuisine.query.all()
-    tools = Tools.query.all()
+    cuisines = list(Cuisine.query.order_by(Cuisine.cuisine_name).all())
+    tools = list(Tools.query.order_by(Tools.tool_name).all())
     return render_template('manage_data.html', cuisines=cuisines, tools=tools)
 
 @app.route('/add_cuisine', methods=['GET', 'POST'])
