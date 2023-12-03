@@ -1,9 +1,13 @@
-from .models import Recipe, Cuisine
+from flask_login import login_user, logout_user, login_required, current_user
+from werkzeug.security import check_password_hash, generate_password_hash
 from flask import render_template, request, redirect, url_for,flash
-from recipehub import app, db
-from recipehub.models import Cuisine, Recipe, Tools, RecipeTool
+from recipehub import app, db,login_manager
+from recipehub.models import Cuisine, Recipe, Tools, RecipeTool, User
 import random
 
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
 
 @app.route("/")
 def home():   
