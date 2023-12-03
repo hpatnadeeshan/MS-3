@@ -14,17 +14,16 @@ def login():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-
+               
         user = User.query.filter_by(username=username).first()
+            if user and check_password_hash(user.password, password):
+                # Successful login logic
+                flash('Login successful!', 'success')
+                return redirect(url_for('home'))
+            else:
+                errors.append('Invalid username or password. Please try again.')
 
-        if user and check_password_hash(user.password, password):
-            login_user(user)
-            flash('Login successful!', 'success')
-            return redirect(url_for('home'))
-        else:
-            flash('Login failed. Please check your username and password.', 'danger')
-
-    return render_template('login.html')
+        return render_template('login.html', errors=errors)
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
