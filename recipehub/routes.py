@@ -11,6 +11,7 @@ def load_user(user_id):
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    errors = []
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
