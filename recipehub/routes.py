@@ -129,7 +129,11 @@ def delete_recipe(recipe_id):
     # Redirect to the recipe explore page or any other appropriate page
     return redirect(url_for('explore_recipes'))
 
-
+@app.route('/manage_data')
+def manage_data():
+    cuisines = Cuisine.query.all()
+    tools = Tool.query.all()
+    return render_template('manage_data.html', cuisines=cuisines, tools=tools)
 
 @app.route('/add_cuisine', methods=['GET', 'POST'])
 def add_cuisine():
