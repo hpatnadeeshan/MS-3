@@ -1,4 +1,5 @@
 from recipehub import db
+from flask_login import UserMixin
 
 class Cuisine(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -49,3 +50,8 @@ class RecipeTool(db.Model):
 
     def __repr__(self):
         return "RecipeTool {}: Recipe {}, Tool {}".format(self.id, self.recipe_id, self.tool_id)
+
+class User(db.Model, UserMixin):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(255), unique=True, nullable=False)
+    password = db.Column(db.String(255), nullable=False)
