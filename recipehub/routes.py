@@ -80,6 +80,7 @@ def view_recipe(recipe_id):
 
 
 @app.route('/add_recipe', methods=['GET', 'POST'])
+@login_required
 def add_recipe():
     cuisines = list(Cuisine.query.order_by(Cuisine.cuisine_name).all())
     tools = list(Tools.query.order_by(Tools.tool_name).all())
@@ -114,6 +115,7 @@ def add_recipe():
 
 
 @app.route('/edit_recipe/<int:recipe_id>', methods=['GET', 'POST'])
+@login_required
 def edit_recipe(recipe_id):
     # Retrieve the recipe to be edited
     recipe = Recipe.query.get(recipe_id)
@@ -171,6 +173,7 @@ def explore_recipes():
 
     
 @app.route('/delete_recipe/<int:recipe_id>', methods=['POST'])
+@login_required
 def delete_recipe(recipe_id):
     # Retrieve the recipe to be deleted
     recipe = Recipe.query.get(recipe_id)
@@ -185,12 +188,14 @@ def delete_recipe(recipe_id):
     return redirect(url_for('explore_recipes'))
 
 @app.route('/manage_data')
+@login_required
 def manage_data():
     cuisines = list(Cuisine.query.order_by(Cuisine.cuisine_name).all())
     tools = list(Tools.query.order_by(Tools.tool_name).all())
     return render_template('manage_data.html', cuisines=cuisines, tools=tools)
 
 @app.route('/add_cuisine', methods=['GET', 'POST'])
+@login_required
 def add_cuisine():
     if request.method == 'POST':
         cuisine_name = request.form['cuisine_name']
@@ -202,6 +207,7 @@ def add_cuisine():
     # return render_template('manage_data.html')
 
 @app.route('/add_tool', methods=['GET', 'POST'])
+@login_required
 def add_tool():
     if request.method == 'POST':
         tool_name = request.form['tool_name']
@@ -214,6 +220,7 @@ def add_tool():
 
 
 @app.route('/edit_cuisine/<int:cuisine_id>', methods=['GET', 'POST'])
+@login_required
 def edit_cuisine(cuisine_id):
     cuisine = Cuisine.query.get_or_404(cuisine_id)
 
@@ -225,6 +232,7 @@ def edit_cuisine(cuisine_id):
     # return render_template('edit_cuisine.html', cuisine=cuisine)
 
 @app.route('/edit_tool/<int:tool_id>', methods=['GET', 'POST'])
+@login_required
 def edit_tool(tool_id):
     tool = Tools.query.get_or_404(tool_id)
 
@@ -237,6 +245,7 @@ def edit_tool(tool_id):
     # return render_template('edit_tool.html', tool=tool)
 
 @app.route('/delete_cuisine/<int:cuisine_id>', methods=['POST'])
+@login_required
 def delete_cuisine(cuisine_id):
     cuisine = Cuisine.query.get_or_404(cuisine_id)
     db.session.delete(cuisine)
@@ -244,6 +253,7 @@ def delete_cuisine(cuisine_id):
     return redirect(url_for('manage_data'))
 
 @app.route('/delete_tool/<int:tool_id>', methods=['POST'])
+@login_required
 def delete_tool(tool_id):
     tool = Tools.query.get_or_404(tool_id)
     db.session.delete(tool)
