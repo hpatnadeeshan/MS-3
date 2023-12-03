@@ -28,29 +28,30 @@ def login():
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
+    errors = []
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
         confirm_password = request.form['confirm_password']
 
         if password != confirm_password:
-            flash('Passwords do not match. Please try again.', 'danger')
-        else:
-            # Check if the username is already taken
-            existing_user = User.query.filter_by(username=username).first()
-            if existing_user:
-                flash('Username is already taken. Please choose a different one.', 'danger')
-            else:
-                # Use the default password hashing
-                hashed_password = generate_password_hash(password)
-                new_user = User(username=username, password=hashed_password)
-                db.session.add(new_user)
-                db.session.commit()
+            errors.append('Passwords do not match. Please try again.')
 
-                flash('Sign Up successful! Please login.', 'success')
-                return redirect(url_for('login'))
+        # Check if the username is already taken
+        existing_user = User.query.filter_by(username=username).first()
+        if existing_user:
+            errors.append('Username is already taken. Please choose a different one.')
 
-    return render_template('signup.html')
+        if not errors:
+            hashed_password = generate_password_hash(password)
+            new_user = User(username=username, password=hashed_password)
+            db.session.add(new_user)
+            db.session.commit()
+
+            # flash('Sign Up successful! Please login.', 'success')
+            return redirect(url_for('login'))
+
+    return render_template('signup.html', errors=errors)
 
 @app.route('/logout')
 @login_required
