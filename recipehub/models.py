@@ -18,6 +18,7 @@ class Recipe(db.Model):
     # Foreign keys
     cuisine_id = db.Column(db.Integer, db.ForeignKey('cuisine.id'), nullable=False)
     cuisine = db.relationship('Cuisine', backref=db.backref('recipes', lazy=True))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     recipe_tool = db.relationship('RecipeTool', backref='recipe', lazy=True, cascade='all, delete-orphan')
 
@@ -56,6 +57,8 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(255), unique=True, nullable=False)
     password = db.Column(db.String(255), nullable=False)
     is_admin = db.Column(db.Boolean,nullable=False, default=False)
+
+    recipes = db.relationship('Recipe', backref='user', lazy=True)
 
     def is_authenticated(self):
         return True  # Assuming all users are authenticated
