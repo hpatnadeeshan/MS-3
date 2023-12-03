@@ -57,6 +57,7 @@ def signup():
 def logout():
     logout_user()
     flash('Logout successful!', 'success')
+    print("logout")
     return redirect(url_for('home'))
 
 @app.route("/")
