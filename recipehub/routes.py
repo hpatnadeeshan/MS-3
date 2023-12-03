@@ -19,6 +19,7 @@ def login():
         user = User.query.filter_by(username=username).first()
         if user and check_password_hash(user.password, password):
             # Successful login logic
+            login_user(user)
             flash('Login successful!', 'success')
             print("login: " + str(current_user.is_authenticated))
             return redirect(url_for('home'))
