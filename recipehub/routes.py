@@ -9,7 +9,25 @@ import random
 def load_user(user_id):
     return User.query.get(int(user_id))
 
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+
+        user = User.query.filter_by(username=username).first()
+
+        if user and check_password_hash(user.password, password):
+            login_user(user)
+            flash('Login successful!', 'success')
+            return redirect(url_for('home'))
+        else:
+            flash('Login failed. Please check your username and password.', 'danger')
+
+    return render_template('login.html')
+
 @app.route("/")
+# @login_required
 def home():   
     recipes = Recipe.query.all()
     # print(recipes[1])
