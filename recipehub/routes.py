@@ -11,7 +11,7 @@ def load_user(user_id):
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    print("login: " + str(current_user.is_authenticated))
+    
     errors = []
     if request.method == 'POST':
         username = request.form['username']
@@ -20,6 +20,7 @@ def login():
         if user and check_password_hash(user.password, password):
             # Successful login logic
             flash('Login successful!', 'success')
+            print("login: " + str(current_user.is_authenticated))
             return redirect(url_for('home'))
         else:
             errors.append('Invalid username or password. Please try again.')
