@@ -59,6 +59,28 @@
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addToolModal">
         Add Tool
     </button>
+    <h2>Cuisines</h2>
+    <ul>
+        {% for cuisine in cuisines %}
+            <li>
+                <a href="{{ url_for('edit_cuisine', cuisine_id=cuisine.id) }}"><i class="fas fa-edit"></i></a> <!-- Edit icon -->
+                <a href="{{ url_for('delete_cuisine', cuisine_id=cuisine.id) }}"><i class="fas fa-trash"></i></a> <!-- Delete icon -->
+                {{ cuisine.cuisine_name }}
+            </li>
+        {% endfor %}
+    </ul>
+    
+    <!-- List of Tools -->
+    <h2>Tools</h2>
+    <ul>
+        {% for tool in tools %}
+            <li>
+                <a href="{{ url_for('edit_tool', tool_id=tool.id) }}"><i class="fas fa-edit"></i></a> <!-- Edit icon -->
+                <a href="{{ url_for('delete_tool', tool_id=tool.id) }}"><i class="fas fa-trash"></i></a> <!-- Delete icon -->
+                {{ tool.tool_name }} (Brand: {{ tool.brand_name }})
+            </li>
+        {% endfor %}
+    </ul>
 </div>
 
 {% endblock %}
