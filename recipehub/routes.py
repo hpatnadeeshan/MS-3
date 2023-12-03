@@ -63,10 +63,10 @@ def logout():
 @app.route("/")
 # @login_required
 def home():   
-    hashed_password = generate_password_hash('12345678')
-    admin_user = User(username='admin', password=hashed_password, is_admin=True)
-    db.session.add(admin_user)
-    db.session.commit()
+    # hashed_password = generate_password_hash('12345678')
+    # admin_user = User(username='admin', password=hashed_password, is_admin=True)
+    # db.session.add(admin_user)
+    # db.session.commit()
 
     recipes = Recipe.query.all()
     # print(recipes[1])
