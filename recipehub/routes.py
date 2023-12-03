@@ -26,6 +26,22 @@ def login():
 
     return render_template('login.html')
 
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+
+        new_user = User(username=username, password=generate_password_hash(password, method='sha256'))
+
+        db.session.add(new_user)
+        db.session.commit()
+
+        flash('Signup successful! Please login.', 'success')
+        return redirect(url_for('login'))
+
+    return render_template('signup.html')
+
 @app.route("/")
 # @login_required
 def home():   
