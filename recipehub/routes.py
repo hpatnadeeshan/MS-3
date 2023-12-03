@@ -32,7 +32,7 @@ def signup():
         username = request.form['username']
         password = request.form['password']
 
-        new_user = User(username=username, password=generate_password_hash(password, method='sha256'))
+        new_user = User(username=username, password=generate_password_hash(password, method='sha256_crypt'))
 
         db.session.add(new_user)
         db.session.commit()
@@ -41,6 +41,13 @@ def signup():
         return redirect(url_for('login'))
 
     return render_template('signup.html')
+
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    flash('Logout successful!', 'success')
+    return redirect(url_for('home'))
 
 @app.route("/")
 # @login_required
