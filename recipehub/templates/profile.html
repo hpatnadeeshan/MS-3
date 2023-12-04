@@ -23,7 +23,7 @@
 
             <!-- Display recipes -->
     <div class="row">
-        {% for recipe in recipes %}
+        {% for recipe in current_user.recipes %}
         <div class="col-lg-4 col-md-6 mb-4">
             <div class="card">
                 <img class="card-img-top" src="{{ recipe.image_link }}" alt="{{ recipe.recipe_name }}">
