@@ -11011,6 +11011,6 @@ header.masthead h1, header.masthead .h1 {
     height: auto;
 }
 
-div.recipe-explore-container,.manage-data,.login-container,.signup-container{
+div.recipe-explore-container,.manage-data,.login-container,.signup-container,.profile-container{
     margin-top: 100px;
 }
