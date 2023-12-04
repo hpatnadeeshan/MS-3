@@ -1,27 +1,34 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="profile-container mt-5">
-        <h2>User Profile</h2>
-        <hr>
+<div class="profile-container">
+    <h2>User Profile</h2>
+    <hr>
 
-        <div class="row gx-4 gx-lg-5 justify-content-between">
-            <div class="col-lg-4 col-md-6 mb-3">
-                <h4>User Information</h4>
-                <ul>
-                    <li><strong>Username:</strong> {{ current_user.username }}</li>
-                    <li><strong>Number of Recipes:</strong> {{ current_user.recipes|length }}</li>
-                </ul>
-            </div>
+    <div class="row gx-4 gx-lg-5 justify-content-between">
+        <div class="col-lg-4 col-md-6 mb-3">
+            <h4>User Information</h4>
+            <ul>
+                <li><strong>Username:</strong> {{ current_user.username }}</li>
+                <li><strong>Number of Recipes:</strong> {{ current_user.recipes|length }}</li>
+            </ul>
         </div>
 
-        <div class="row mt-4">
-            <div class="col-lg-4 col-md-6 mb-3">
-                <h4>My Recipes</h4>
-            </div>
+        {% if current_user.is_authenticated and current_user.is_admin %}
+        <!-- Display "Manage Data" link only for admin users -->
+        <div class="col-lg-4 col-md-6 mb-3">
+            <a href="{{ url_for('manage_data') }}" class="btn btn-primary">Manage Data</a>
         </div>
+        {% endif %}
+    </div>
 
-            <!-- Display recipes -->
+    <div class="row mt-4">
+        <div class="col-lg-4 col-md-6 mb-3">
+            <h4>My Recipes</h4>
+        </div>
+    </div>
+
+    <!-- Display recipes -->
     <div class="row">
         {% for recipe in current_user.recipes %}
         <div class="col-lg-4 col-md-6 mb-4">
@@ -67,7 +74,6 @@
         </div>
         {% endfor %}
     </div>
-    
 </div>
 
 {% endblock %}
