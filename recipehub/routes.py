@@ -65,12 +65,7 @@ def logout():
 
 @app.route("/")
 # @login_required
-def home():   
-    # hashed_password = generate_password_hash('12345678')
-    # admin_user = User(username='admin', password=hashed_password, is_admin=True)
-    # db.session.add(admin_user)
-    # db.session.commit()
-
+def home():
     recipes = Recipe.query.all()
     # print(recipes[1])
     random_recipes = random.sample(recipes, 4)
@@ -286,3 +281,8 @@ def delete_tool(tool_id):
     db.session.delete(tool)
     db.session.commit()
     return redirect(url_for('manage_data'))
+
+@app.route('/profile')
+@login_required
+def profile():
+    return render_template('profile.html', current_user=current_user)
