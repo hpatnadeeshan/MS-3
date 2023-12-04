@@ -47,7 +47,7 @@
                         <a class="nav-link" href="{{ url_for('add_recipe') }}">Add Recipe</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Profile</a>
+                        <a class="nav-link" href="{{ url_for('profile') }}profile">Profile</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
@@ -106,7 +106,7 @@
         <div class="container px-4 px-lg-5">
             <div class="small text-center text-muted">
                 <a class="nav-link" href="{{ url_for('manage_data') }}">Manage data</a>
-                <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+                <a class="nav-link" href="{{ url_for('add_recipe') }}">Add Recipe</a>
                 Copyright &copy; 2023 - Company Name
             </div>
         </div>
