@@ -2,7 +2,7 @@ from flask_login import login_user, logout_user, login_required, current_user
 from werkzeug.security import check_password_hash, generate_password_hash
 from flask import render_template, request, redirect, url_for,flash,jsonify
 from recipehub import app, db,login_manager
-from recipehub.models import Cuisine, Recipe, Tools, RecipeTool, User
+from recipehub.models import Cuisine, Recipe, Tools, RecipeTool, User,ContactSubmission
 import random
 
 @login_manager.user_loader
@@ -66,7 +66,7 @@ def logout():
 @app.route("/")
 # @login_required
 def home():
-    print(current_user.id)
+    # print(current_user.id)
     recipes = Recipe.query.all()
     # print(recipes[1])
     random_recipes = random.sample(recipes, 4)
@@ -287,3 +287,18 @@ def delete_tool(tool_id):
 @login_required
 def profile():
     return render_template('profile.html', current_user=current_user)
+
+@app.route('/contact_us', methods=['POST'])
+def contact_us():
+    if request.method == 'POST':
+        name = request.form.get('name')
+        email = request.form.get('email')
+        phone = request.form.get('phone')
+        message = request.form.get('message')
+
+        # Create a new contact submission
+        new_submission = ContactSubmission(name=name, email=email, phone=phone, message=message)
+        db.session.add(new_submission)
+        db.session.commit()
+
+        return redirect(url_for('home'))
