@@ -5,6 +5,7 @@
     <h2>User Profile</h2>
     <hr>
 
+    <!-- User Information Section -->
     <div class="row gx-4 gx-lg-5 justify-content-between">
         <div class="col-lg-4 col-md-6 mb-3">
             <h4>User Information</h4>
@@ -14,14 +15,21 @@
             </ul>
         </div>
 
+        <!-- Display "Manage Data" and "View Messages" links for admin users -->
         {% if current_user.is_authenticated and current_user.is_admin %}
-        <!-- Display "Manage Data" link only for admin users -->
         <div class="col-lg-4 col-md-6 mb-3">
             <a href="{{ url_for('manage_data') }}" class="btn btn-primary">Manage Data</a>
+        </div>
+        <div class="row mt-4">
+            <div class="col-lg-4 col-md-6 mb-3">
+                <h4>View Messages</h4>
+                <a href="{{ url_for('view_messages') }}" class="btn btn-primary">View Messages</a>
+            </div>
         </div>
         {% endif %}
     </div>
 
+    <!-- My Recipes Section -->
     <div class="row mt-4">
         <div class="col-lg-4 col-md-6 mb-3">
             <h4>My Recipes</h4>
