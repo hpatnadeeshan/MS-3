@@ -19,10 +19,11 @@
                     <label for="cuisine_name" class="form-label">Cuisine Type</label>
                     <select class="form-select" id="cuisine_name" name="cuisine_name" required>
                         {% for cuisine in cuisines %}
-                            <option value="{{ cuisine.id }}">{{ cuisine.cuisine_name }}</option>
+                        <option value="{{ cuisine.id }}">{{ cuisine.cuisine_name }}</option>
                         {% endfor %}
                     </select>
-                    <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#addCuisineModal">
+                    <button type="button" class="btn btn-outline-secondary" data-toggle="modal"
+                        data-target="#addCuisineModal">
                         <i class="fas fa-plus"></i> <!-- Font Awesome plus icon -->
                     </button>
                 </div>
@@ -36,18 +37,21 @@
                 <!-- Preparation Steps -->
                 <div class="mb-3">
                     <label for="preparation_steps" class="form-label">Preparation Steps</label>
-                    <textarea class="form-control" id="preparation_steps" name="preparation_steps" rows="5" required></textarea>
+                    <textarea class="form-control" id="preparation_steps" name="preparation_steps" rows="5"
+                        required></textarea>
                 </div>
 
                 <!-- Required Tools -->
                 <div class="mb-3">
                     <label for="required_tools" class="form-label">Required Tools</label>
-                    <select id="required_tools" name="required_tools[]"  multiple class="form-select selectpicker" multiple data-live-search="true">
+                    <select id="required_tools" name="required_tools[]" multiple class="form-select selectpicker"
+                        multiple data-live-search="true">
                         {% for tool in tools %}
-                            <option value="{{ tool.id }}">{{ tool.tool_name }}</option>
+                        <option value="{{ tool.id }}">{{ tool.tool_name }}</option>
                         {% endfor %}
                     </select>
-                    <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#addToolModal">
+                    <button type="button" class="btn btn-outline-secondary" data-toggle="modal"
+                        data-target="#addToolModal">
                         <i class="fas fa-plus"></i> <!-- Font Awesome plus icon -->
                     </button>
                 </div>
