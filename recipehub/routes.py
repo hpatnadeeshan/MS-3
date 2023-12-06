@@ -89,7 +89,6 @@ def view_recipe(recipe_id):
 def add_recipe():
     cuisines = list(Cuisine.query.order_by(Cuisine.cuisine_name).all())
     tools = list(Tools.query.order_by(Tools.tool_name).all())
-    user__id=current_user.id
     if request.method == 'POST':
 
        # Create a new recipe
@@ -98,9 +97,8 @@ def add_recipe():
             cuisine_id=request.form.get('cuisine_name'),
             ingredients=request.form.get('ingredients'),
             preparation_steps=request.form.get('preparation_steps'),
-            image_link=request.form.get('image_link')
-            # user_id=current_user.id
-            user_id=user__id
+            image_link=request.form.get('image_link'),
+            user_id=current_user.id
         )
 
         db.session.add(new_recipe)
