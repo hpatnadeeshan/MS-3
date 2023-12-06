@@ -98,6 +98,7 @@ def add_recipe():
             ingredients=request.form.get('ingredients'),
             preparation_steps=request.form.get('preparation_steps'),
             image_link=request.form.get('image_link')
+            user_id=current_user.id
         )
 
         db.session.add(new_recipe)
