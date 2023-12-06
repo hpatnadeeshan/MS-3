@@ -196,60 +196,46 @@
                 </p>
             </div>
         </div>
-        <!-- Bootstrap Contact Form -->
-        <section class="page-section" id="contact">
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-lg-8 col-xl-6 text-center">
-                        <h2 class="mt-0">Contact Us</h2>
-                        <hr class="divider" />
-                        <p class="text-muted mb-5">
-                            Ready to get in touch? Fill out the form below.
-                        </p>
+        <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
+            <div class="col-lg-6">
+                <!-- Bootstrap Contact Form -->
+                <form action="{{ url_for('contact_us') }}" method="post">
+                    <!-- Name input -->
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
                     </div>
-                </div>
-                <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
-                    <div class="col-lg-6">
-                        <!-- Bootstrap Contact Form -->
-                        <form action="{{ url_for('contact_us') }}" method="post">
-                            <!-- Name input -->
-                            <div class="mb-3">
-                                <label for="name" class="form-label">Full Name</label>
-                                <input type="text" class="form-control" id="name" name="name" required>
-                            </div>
-                            <!-- Email address input -->
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email Address</label>
-                                <input type="email" class="form-control" id="email" name="email" required>
-                            </div>
-                            <!-- Phone number input -->
-                            <div class="mb-3">
-                                <label for="phone" class="form-label">Phone Number</label>
-                                <input type="tel" class="form-control" id="phone" name="phone" required>
-                            </div>
-                            <!-- Message input -->
-                            <div class="mb-3">
-                                <label for="message" class="form-label">Message</label>
-                                <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
-                            </div>
-                            <!-- Submit button -->
-                            <div class="d-grid">
-                                <button class="btn btn-primary btn-xl" type="submit">Submit</button>
-                            </div>
-                        </form>
-                        <!-- End Bootstrap Contact Form -->
+                    <!-- Email address input -->
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
                     </div>
-                </div>
+                    <!-- Phone number input -->
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone Number</label>
+                        <input type="tel" class="form-control" id="phone" name="phone" required>
+                    </div>
+                    <!-- Message input -->
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+                    </div>
+                    <!-- Submit button -->
+                    <div class="d-grid">
+                        <button class="btn btn-primary btn-xl" type="submit">Submit</button>
+                    </div>
+                </form>
+                <!-- End Bootstrap Contact Form -->
             </div>
-        </section>
-
-        <div class="row gx-4 gx-lg-5 justify-content-center">
-            <div class="col-lg-4 text-center mb-5 mb-lg-0">
-                <i class="bi-phone fs-2 mb-3 text-muted"></i>
-                <div>+1 (555) 123-4567</div>
-            </div>
+        </div>
+    </div> 
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-lg-4 text-center mb-5 mb-lg-0">
+            <i class="bi-phone fs-2 mb-3 text-muted"></i>
+            <div>+1 (555) 123-4567</div>
         </div>
     </div>
 </section>
+
 
 {% endblock %}
