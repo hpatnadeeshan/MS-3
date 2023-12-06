@@ -50,19 +50,33 @@ I want to be able to feature certain recipes on the homepage.
 ### Wireframes
 
 [Landing page Mobile](./recipehub/static/assets/wireframes/mobile-home.jpg)
+
 [Recipe Explore page Mobile](./recipehub/static/assets/wireframes/mobile-recipe-explore.jpg)
+
 [Add and Edit page Mobile](./recipehub/static/assets/wireframes/mobile-add-edit.jpg)
+
 [profile page Mobile](./recipehub/static/assets/wireframes/mobile-profile.jpg)
+
 [view Recipe page Mobile](./recipehub/static/assets/wireframes/mobile-recipe.jpg)
+
 [Landing page tablet](./recipehub/static/assets/wireframes/tablet-home.jpg)
+
 [Recipe Explore page tablet](./recipehub/static/assets/wireframes/tablet-recipe-explore.jpg)
+
 [Add and Edit page tablet](./recipehub/static/assets/wireframes/Add-edit-recipe.jpg)
+
 [profile page tablet](./recipehub/static/assets/wireframes/tablet-profile.jpg)
+
 [view Recipe page tablet](./recipehub/static/assets/wireframes/tablet-recipe.jpg)
+
 [Landing page Desktop](./recipehub/static/assets/wireframes/Home-page.jpg)
+
 [Recipe Explore page Desktop](./recipehub/static/assets/wireframes/Recipe-Explore-page.jpg)
+
 [Add and Edit page Desktop](./recipehub/static/assets/wireframes/Add-edit-recipe.jpg)
+
 [profile page Desktop](./recipehub/static/assets/wireframes/profile-page.jpg)
+
 [view Recipe page Desktop](./recipehub/static/assets/wireframes/Recipe-view-page.jpg)
 
 
