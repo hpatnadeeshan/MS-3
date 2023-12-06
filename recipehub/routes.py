@@ -306,5 +306,5 @@ def contact_us():
 
 @app.route('/view_messages')
 def view_messages():
-    messages = Message.query.all()
+    messages = ContactSubmission.query.all()
     return render_template('view_messages.html', messages=messages)
