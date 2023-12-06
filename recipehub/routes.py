@@ -66,6 +66,7 @@ def logout():
 @app.route("/")
 # @login_required
 def home():
+    print(current_user.id)
     recipes = Recipe.query.all()
     # print(recipes[1])
     random_recipes = random.sample(recipes, 4)
