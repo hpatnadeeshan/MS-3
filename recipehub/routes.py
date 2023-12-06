@@ -303,7 +303,7 @@ def contact_us():
 
         return redirect(url_for('home'))
 
-
+@login_required
 @app.route('/view_messages')
 def view_messages():
     messages = ContactSubmission.query.all()
