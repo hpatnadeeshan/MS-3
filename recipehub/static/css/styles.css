@@ -11011,6 +11011,24 @@ header.masthead h1, header.masthead .h1 {
     height: auto;
 }
 
-div.recipe-explore-container,.manage-data,.login-container,.signup-container,.profile-container{
+div.recipe-explore-container,.manage-data,.login-container,.signup-container,.profile-container,.view-messages{
     margin-top: 100px;
+}
+
+/* added styles to view meassages table */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
 }
