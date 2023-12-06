@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="add-recipe-container">
-    <div class="row justify-content-center">
+<article class="add-recipe-container">
+    <section class="row justify-content-center">
         <div class="col-lg-8">
 
             <h2>Add Recipe</h2>
@@ -21,7 +21,6 @@
                         {% for cuisine in cuisines %}
                             <option value="{{ cuisine.id }}">{{ cuisine.cuisine_name }}</option>
                         {% endfor %}
-
                     </select>
                     <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#addCuisineModal">
                         <i class="fas fa-plus"></i> <!-- Font Awesome plus icon -->
@@ -54,9 +53,7 @@
                 </div>
                 <div id="selectedToolsContainer">
                     <p id="selectedToolsList"></p>
-                    
                 </div>
-                
 
                 <!-- Image Link -->
                 <div class="mb-3">
@@ -68,55 +65,55 @@
             </form>
 
         </div>
-    </div>
-</div>
-    <!-- Add Cuisine Modal -->
-    <div class="modal fade" id="addCuisineModal" tabindex="-1" role="dialog" aria-labelledby="addCuisineModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="addCuisineModalLabel">Add Cuisine</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form method="post" action="{{ url_for('add_cuisine') }}">
-                        <div class="form-group">
-                            <label for="cuisine_name">Cuisine Name:</label>
-                            <input type="text" class="form-control" id="cuisine_name" name="cuisine_name" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Add Cuisine</button>
-                    </form>
-                </div>
-            </div>
+    </section>
+</article>
+<!-- Add Cuisine Modal -->
+<aside class="modal fade" id="addCuisineModal" tabindex="-1" role="dialog" aria-labelledby="addCuisineModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <header class="modal-header">
+                <h5 class="modal-title" id="addCuisineModalLabel">Add Cuisine</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </header>
+            <section class="modal-body">
+                <form method="post" action="{{ url_for('add_cuisine') }}">
+                    <div class="form-group">
+                        <label for="cuisine_name">Cuisine Name:</label>
+                        <input type="text" class="form-control" id="cuisine_name" name="cuisine_name" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Cuisine</button>
+                </form>
+            </section>
         </div>
     </div>
-    <!-- Add Tool Modal -->
-    <div class="modal fade" id="addToolModal" tabindex="-1" role="dialog" aria-labelledby="addToolModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="addToolModalLabel">Add Tool</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form method="post" action="{{ url_for('add_tool') }}">
-                        <label for="tool_name">Tool Name:</label>
-                        <input type="text" id="tool_name" name="tool_name" required>
-                        <br>
-                        <label for="brand_name">Brand Name:</label>
-                        <input type="text" id="brand_name" name="brand_name">
-                        <br>
-                        <button type="submit" class="btn btn-primary">Add Tool</button>
-                    </form>
-                </div>
-            </div>
+</aside>
+<!-- Add Tool Modal -->
+<aside class="modal fade" id="addToolModal" tabindex="-1" role="dialog" aria-labelledby="addToolModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <header class="modal-header">
+                <h5 class="modal-title" id="addToolModalLabel">Add Tool</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </header>
+            <section class="modal-body">
+                <form method="post" action="{{ url_for('add_tool') }}">
+                    <label for="tool_name">Tool Name:</label>
+                    <input type="text" id="tool_name" name="tool_name" required>
+                    <br>
+                    <label for="brand_name">Brand Name:</label>
+                    <input type="text" id="brand_name" name="brand_name">
+                    <br>
+                    <button type="submit" class="btn btn-primary">Add Tool</button>
+                </form>
+            </section>
         </div>
     </div>
+</aside>
 
 {% endblock %}
