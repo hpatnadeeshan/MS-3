@@ -302,3 +302,9 @@ def contact_us():
         db.session.commit()
 
         return redirect(url_for('home'))
+
+
+@app.route('/view_messages')
+def view_messages():
+    messages = Message.query.all()
+    return render_template('view_messages.html', messages=messages)
