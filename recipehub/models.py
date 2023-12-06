@@ -1,5 +1,6 @@
 from recipehub import db
 from flask_login import UserMixin
+from datetime import datetime
 
 class Cuisine(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -77,3 +78,14 @@ class User(db.Model, UserMixin):
         return "id {}: username {}, password {}, is_admin {}".format(
             self.id, self.username, self.password, self.is_admin
         )
+
+class ContactSubmission(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(255), nullable=False)
+    email = db.Column(db.String(255), nullable=False)
+    phone = db.Column(db.String(20), nullable=False)
+    message = db.Column(db.Text, nullable=False)
+    submitted_at = db.Column(db.DateTime, default=datetime.utcnow)
+
+    def __repr__(self):
+        return f"ContactSubmission(id={self.id}, name={self.name}, email={self.email}, submitted_at={self.submitted_at})"
