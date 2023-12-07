@@ -11094,3 +11094,7 @@ body{
 .link-color{
     color: #0051A3;
 }
+
+bootstrap-select>.dropdown-toggle.bs-placeholder {
+    color: black;
+}
