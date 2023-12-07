@@ -19,11 +19,11 @@
 
             <section>
                 <h2>Preparation Steps:</h2>
-                <ol>
+                <ul class="no-bullets">
                     {% for step in recipe.preparation_steps.replace('\\n', '\n').split('\n') %}
                     <li>{{ step }}</li>
                     {% endfor %}
-                </ol>
+                </ul>
             </section>
 
             {% if tools %}
