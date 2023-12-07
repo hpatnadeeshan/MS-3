@@ -40,6 +40,10 @@ $(document).ready(function () {
     if (messagesModal.find('ul li').length > 0) {
         messagesModal.modal('show');
     }
+    // Hide the modal after 1 second
+    setTimeout(function () {
+        messagesModal.modal('hide');
+    }, 1000);
 
     // Update the navbar on scroll
     $(window).on('scroll', function () {
