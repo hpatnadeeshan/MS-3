@@ -11095,6 +11095,6 @@ body{
     color: #0051A3;
 }
 
-bootstrap-select>.dropdown-toggle.bs-placeholder {
+div.filter-option-inner-inner {
     color: black;
 }
