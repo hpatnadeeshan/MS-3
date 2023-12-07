@@ -1,14 +1,35 @@
-/*!
-* Start Bootstrap - Creative v7.0.7 (https://startbootstrap.com/theme/creative)
-* Copyright 2013-2023 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-creative/blob/master/LICENSE)
-*/
-//
-// Scripts
-// 
+// scripts.js
+
+$(document).ready(function () {
+    // Initialize Bootstrap Select
+    $('.selectpicker').selectpicker();
+
+    // Handle change event on the select element
+    $('#required_tools').on('changed.bs.select', function (e, clickedIndex, isSelected, previousValue) {
+        // Get the selected options
+        var selectedOptions = $(this).val();
+
+        // Update the list of selected tools
+        var selectedToolsList = $('#selectedToolsList');
+        selectedToolsList.empty(); // Clear the list
+
+        // Populate the list with selected tools
+        if (selectedOptions) {
+            selectedOptions.forEach(function (option, index) {
+                var toolName = $('#required_tools option[value="' + option + '"]').text();
+                selectedToolsList.append('<span>' + toolName + (index < selectedOptions.length - 1 ? ', ' : '') + '</span>');
+            });
+        }
+    });
+
+    // Automatically show the modal on page load if there are flash messages
+    var messagesModal = $('#flashMessagesModal');
+    if (messagesModal.find('ul li').length > 0) {
+        messagesModal.modal('show');
+    }
+});
 
 window.addEventListener('DOMContentLoaded', event => {
-
     // Navbar shrink function
     var navbarShrink = function () {
         const navbarCollapsible = document.body.querySelector('#mainNav');
@@ -20,40 +41,8 @@ window.addEventListener('DOMContentLoaded', event => {
         } else {
             navbarCollapsible.classList.add('navbar-shrink')
         }
-
     };
 
     // Shrink the navbar 
     navbarShrink();
-
-    // Shrink the navbar when page is scrolled
-    // document.addEventListener('scroll', navbarShrink);
-
-    // Activate Bootstrap scrollspy on the main nav element
-    // const mainNav = document.body.querySelector('#mainNav');
-    // if (mainNav) {
-    //     new bootstrap.ScrollSpy(document.body, {
-    //         target: '#mainNav',
-    //         rootMargin: '0px 0px -40%',
-    //     });
-    // };
-
-    // Collapse responsive navbar when toggler is visible
-    const navbarToggler = document.body.querySelector('.navbar-toggler');
-    const responsiveNavItems = [].slice.call(
-        document.querySelectorAll('#navbarResponsive .nav-link')
-    );
-    responsiveNavItems.map(function (responsiveNavItem) {
-        responsiveNavItem.addEventListener('click', () => {
-            if (window.getComputedStyle(navbarToggler).display !== 'none') {
-                navbarToggler.click();
-            }
-        });
-    });
-
-    // Activate SimpleLightbox plugin for portfolio items
-    // new SimpleLightbox({
-    //     elements: '#explore a.portfolio-box'
-    // });
-
 });

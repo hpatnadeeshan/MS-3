@@ -127,39 +127,6 @@
 
     <!--  Custom Scripts -->
     <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
-    <script>
-        $(document).ready(function () {
-            // Initialize Bootstrap Select
-            $('.selectpicker').selectpicker();
-
-            // Handle change event on the select element
-            $('#required_tools').on('changed.bs.select', function (e, clickedIndex, isSelected, previousValue) {
-                // Get the selected options
-                var selectedOptions = $(this).val();
-
-                // Update the list of selected tools
-                var selectedToolsList = $('#selectedToolsList');
-                selectedToolsList.empty(); // Clear the list
-
-                // Populate the list with selected tools
-                if (selectedOptions) {
-                    selectedOptions.forEach(function (option, index) {
-                        var toolName = $('#required_tools option[value="' + option + '"]').text();
-                        selectedToolsList.append('<span>' + toolName + (index < selectedOptions.length - 1 ? ', ' : '') + '</span>');
-                    });
-                }
-            });
-        });
-    </script>
-    <script>
-        // Automatically show the modal on page load if there are flash messages
-        $(document).ready(function () {
-            var messagesModal = $('#flashMessagesModal');
-            if (messagesModal.find('ul li').length > 0) {
-                messagesModal.modal('show');
-            }
-        });
-    </script>
 </body>
 
 </html>
