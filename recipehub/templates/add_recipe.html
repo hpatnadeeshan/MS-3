@@ -84,8 +84,8 @@
             </header>
             <section class="modal-body">
                 <form method="post" action="{{ url_for('add_cuisine') }}">
-                    <div class="form-group">
-                        <label for="cuisine_name">Cuisine Name:</label>
+                    <div class="mb-3">
+                        <label for="cuisine_name" class="form-label">Cuisine Name:</label>
                         <input type="text" class="form-control" id="cuisine_name" name="cuisine_name" required>
                     </div>
                     <button type="submit" class="btn btn-primary">Add Cuisine</button>
@@ -107,15 +107,17 @@
             </header>
             <section class="modal-body">
                 <form method="post" action="{{ url_for('add_tool') }}">
-                    <label for="tool_name">Tool Name:</label>
-                    <input type="text" id="tool_name" name="tool_name" required>
-                    <br>
-                    <label for="brand_name">Brand Name:</label>
-                    <select id="brand_name" name="brand_name" required>
-                        <option value="Any">Any</option>
-                        <option value="Kitchen Aid">Kitchen Aid</option>
-                    </select>
-                    <br>
+                    <div class="mb-3">
+                        <label for="tool_name" class="form-label">Tool Name:</label>
+                        <input type="text" id="tool_name" name="tool_name" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="brand_name" class="form-label">Brand Name:</label>
+                        <select id="brand_name" name="brand_name" class="form-control" required>
+                            <option value="Any">Any</option>
+                            <option value="Kitchen Aid">Kitchen Aid</option>
+                        </select>
+                    </div>
                     <button type="submit" class="btn btn-primary">Add Tool</button>
                 </form>
             </section>
