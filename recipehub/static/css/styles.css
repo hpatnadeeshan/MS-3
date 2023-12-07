@@ -11075,3 +11075,10 @@ body{
 .b-margin{
     margin-bottom: 20px;
 }
+
+@media (max-width: 991.98px) {  
+    #mainNav .navbar-nav .nav-item .nav-link, #mainNav .navbar-brand {
+        color: #333333;
+        padding: 10px 1rem;
+    }
+}
