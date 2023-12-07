@@ -11081,4 +11081,8 @@ body{
         color: #333333;
         padding: 10px 1rem;
     }
+
+    #mainNav .navbar-nav .nav-item .nav-link:hover, #mainNav .navbar-nav .nav-item .nav-link:active {
+        color: #333333;
+    }
 }
