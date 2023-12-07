@@ -11072,3 +11072,6 @@ body{
     padding: 0;
     margin: 0;
 }
+.custom-margin{
+    margin-bottom: 20px;
+}
