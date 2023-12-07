@@ -11042,3 +11042,26 @@ body{
     flex-direction: column;
     min-height: 100vh;
 }
+
+#mainNav .navbar-nav .nav-item .nav-link ,#mainNav .navbar-brand {
+    color: rgba(255, 255, 255);
+    padding: 0 1rem;
+}
+
+#mainNav .navbar-nav .nav-item .nav-link:hover{
+    font-size: 17px;
+}
+
+#mainNav.navbar-shrink .navbar-nav .nav-item .nav-link:hover{
+    color: #333333;
+    font-size: 17px;
+}
+
+#mainNav.navbar-shrink .navbar-brand:hover{
+    color: #333333;
+    font-size: 20.5px;
+}
+
+#mainNav .navbar-brand:hover {
+    font-size: 20.5px;
+}
