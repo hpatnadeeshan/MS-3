@@ -70,24 +70,24 @@
         {% block content %}
         {% endblock %}
     </main>
-    <div class="modal fade" id="flashMessagesModal" tabindex="-1" role="dialog" aria-labelledby="flashMessagesModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                {% with messages = get_flashed_messages() %}
+    <div class="modal fade" id="flashMessagesModal" tabindex="-1" role="dialog"
+        aria-labelledby="flashMessagesModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    {% with messages = get_flashed_messages() %}
                     {% if messages %}
-                        <ul>
-                            {% for message in messages %}
-                                <li>{{ message }}</li>
-                            {% endfor %}
-                        </ul>
+                    <ul>
+                        {% for message in messages %}
+                        <li class="no-bullets">{{ message }}</li>
+                        {% endfor %}
+                    </ul>
                     {% endif %}
-                {% endwith %}
+                    {% endwith %}
+                </div>
             </div>
         </div>
     </div>
-</div>
 
     <!-- Footer-->
     <footer class="bg-primary py-5 mt-auto">
@@ -112,7 +112,7 @@
             </div>
         </div>
     </footer>
-    
+
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.7.1.js"
