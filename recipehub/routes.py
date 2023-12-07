@@ -35,13 +35,14 @@ def signup():
         username = request.form['username']
         password = request.form['password']
         confirm_password = request.form['confirm_password']
-
-        if password != confirm_password:
-            errors.append('Passwords do not match. Please try again.')
-
-        # Check if the username is already taken
         existing_user = User.query.filter_by(username=username).first()
-        if existing_user:
+        if len(username) < 5:
+            errors.append('Username must be at least 5 characters.')
+        elif len(password) < 5:
+            errors.append('Password must be at least 5 characters.')
+        elif password != confirm_password:
+            errors.append('Passwords do not match. Please try again.')
+        elif existing_user:
             errors.append('Username is already taken. Please choose a different one.')
 
         if not errors:
