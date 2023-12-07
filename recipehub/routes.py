@@ -50,7 +50,7 @@ def signup():
             db.session.add(new_user)
             db.session.commit()
 
-            # flash('Sign Up successful! Please login.', 'success')
+            flash('Sign Up successful! Please login.', 'success')
             return redirect(url_for('login'))
 
     return render_template('signup.html', errors=errors)
@@ -113,6 +113,8 @@ def add_recipe():
             db.session.add(recipe_tool)
 
         db.session.commit()
+        flash('successfully added!', 'success')
+        
 
         return redirect(url_for("add_recipe"))
 
@@ -137,6 +139,7 @@ def edit_recipe(recipe_id):
         db.session.commit()
 
         # Redirect to the view recipe page after editing
+        flash('successfully modified!', 'success')
         return redirect(url_for('view_recipe', recipe_id=recipe.id))
 
     
@@ -188,6 +191,7 @@ def delete_recipe(recipe_id):
         # Delete the recipe from the database
         db.session.delete(recipe)
         db.session.commit()
+        flash('successfully deleted!', 'success')
 
     # Redirect to the recipe explore page or any other appropriate page
     return redirect(url_for('explore_recipes'))
@@ -211,12 +215,14 @@ def add_cuisine():
         referer = request.headers.get('Referer')
         if referer and 'add_recipe' in referer:
             # If the request is coming from add_recipe.html, return a response to close the modal
+            flash('successfully added!', 'success')
             return redirect(url_for('add_recipe'))
         else:
             # If the request is coming from any other page, redirect to manage_data
+            flash('successfully added!', 'success')
             return redirect(url_for('manage_data'))
 
-        return redirect(url_for('manage_data'))
+        # return redirect(url_for('manage_data'))
 
     # return render_template('manage_data.html')
 
@@ -233,12 +239,14 @@ def add_tool():
         referer = request.headers.get('Referer')
         if referer and 'add_recipe' in referer:
             # If the request is coming from add_recipe.html, return a response to close the modal
+            flash('successfully added!', 'success')
             return redirect(url_for('add_recipe'))
         else:
             # If the request is coming from any other page, redirect to manage_data
+            flash('successfully added!', 'success')
             return redirect(url_for('manage_data'))
 
-        return redirect(url_for('manage_data'))
+        # return redirect(url_for('manage_data'))
     # return render_template('manage_data.html')
 
 
@@ -250,6 +258,7 @@ def edit_cuisine(cuisine_id):
     if request.method == 'POST':
         cuisine.cuisine_name = request.form['cuisine_name']
         db.session.commit()
+        flash('successfully modified!', 'success')
         return redirect(url_for('manage_data'))
 
     # return render_template('edit_cuisine.html', cuisine=cuisine)
@@ -263,6 +272,7 @@ def edit_tool(tool_id):
         tool.tool_name = request.form['tool_name']
         tool.brand_name = request.form['brand_name']
         db.session.commit()
+        flash('successfully modified!', 'success')
         return redirect(url_for('manage_data'))
 
     # return render_template('edit_tool.html', tool=tool)
@@ -273,6 +283,7 @@ def delete_cuisine(cuisine_id):
     cuisine = Cuisine.query.get_or_404(cuisine_id)
     db.session.delete(cuisine)
     db.session.commit()
+    flash('successfully deleted!', 'success')
     return redirect(url_for('manage_data'))
 
 @app.route('/delete_tool/<int:tool_id>', methods=['POST'])
@@ -281,6 +292,7 @@ def delete_tool(tool_id):
     tool = Tools.query.get_or_404(tool_id)
     db.session.delete(tool)
     db.session.commit()
+    flash('successfully deleted!', 'success')
     return redirect(url_for('manage_data'))
 
 @app.route('/profile')
@@ -300,6 +312,7 @@ def contact_us():
         new_submission = ContactSubmission(name=name, email=email, phone=phone, message=message)
         db.session.add(new_submission)
         db.session.commit()
+        flash('successfully send!', 'success')
 
         return redirect(url_for('home'))
 
