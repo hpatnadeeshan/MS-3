@@ -1,5 +1,18 @@
 // scripts.js
 
+// Define navbarShrink globally
+var navbarShrink = function () {
+    const navbarCollapsible = document.body.querySelector('#mainNav');
+    if (!navbarCollapsible) {
+        return;
+    }
+    if (window.scrollY === 0) {
+        navbarCollapsible.classList.remove('navbar-shrink')
+    } else {
+        navbarCollapsible.classList.add('navbar-shrink')
+    }
+};
+
 $(document).ready(function () {
     // Initialize Bootstrap Select
     $('.selectpicker').selectpicker();
@@ -27,22 +40,14 @@ $(document).ready(function () {
     if (messagesModal.find('ul li').length > 0) {
         messagesModal.modal('show');
     }
+
+    // Update the navbar on scroll
+    $(window).on('scroll', function () {
+        navbarShrink();
+    });
 });
 
 window.addEventListener('DOMContentLoaded', event => {
-    // Navbar shrink function
-    var navbarShrink = function () {
-        const navbarCollapsible = document.body.querySelector('#mainNav');
-        if (!navbarCollapsible) {
-            return;
-        }
-        if (window.scrollY === 0) {
-            navbarCollapsible.classList.remove('navbar-shrink')
-        } else {
-            navbarCollapsible.classList.add('navbar-shrink')
-        }
-    };
-
-    // Shrink the navbar 
+    // Shrink the navbar on page load
     navbarShrink();
 });
