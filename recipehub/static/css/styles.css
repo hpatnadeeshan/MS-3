@@ -11032,3 +11032,7 @@ th, td {
 th {
     background-color: #f2f2f2;
 }
+
+.add-recipe-container .btn,.login-container .btn,.signup-container .btn{
+    margin-top: 10px;
+}
