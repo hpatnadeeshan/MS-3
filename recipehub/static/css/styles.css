@@ -11036,3 +11036,9 @@ th {
 .add-recipe-container .btn,.login-container .btn,.signup-container .btn{
     margin-top: 10px;
 }
+
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
