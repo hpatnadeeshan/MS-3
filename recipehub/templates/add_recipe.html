@@ -45,7 +45,7 @@
                 <div class="mb-3">
                     <label for="required_tools" class="form-label">Required Tools</label>
                     <select id="required_tools" name="required_tools[]" multiple class="form-select selectpicker"
-                        multiple data-live-search="true">
+                        data-live-search="true" required>
                         <option value="" disabled selected>Select Tool(s)</option>
                         {% for tool in tools %}
                         <option value="{{ tool.id }}">{{ tool.tool_name }}</option>
