@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
 
-<article class="add-recipe-container">
-    <section class="row justify-content-center">
+<section class="add-recipe-container">
+    <div class="row justify-content-center">
         <div class="col-lg-8">
 
             <h2>Add Recipe</h2>
@@ -71,8 +71,8 @@
             </form>
 
         </div>
-    </section>
-</article>
+    </div>
+</section>
 <!-- Add Cuisine Modal -->
 <div class="modal fade" id="addCuisineModal" tabindex="-1" aria-labelledby="addCuisineModalLabel"
     aria-hidden="true">
@@ -84,7 +84,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </header>
-            <section class="modal-body">
+            <div class="modal-body">
                 <form method="post" action="{{ url_for('add_cuisine') }}">
                     <div class="mb-3">
                         <label for="add_cuisine_name" class="form-label">Cuisine Name:</label>
@@ -92,7 +92,7 @@
                     </div>
                     <button type="submit" class="btn btn-primary">Add Cuisine</button>
                 </form>
-            </section>
+            </div>
         </div>
     </div>
 </div>
@@ -107,7 +107,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </header>
-            <section class="modal-body">
+            <div class="modal-body">
                 <form method="post" action="{{ url_for('add_tool') }}">
                     <div class="mb-3">
                         <label for="tool_name" class="form-label">Tool Name:</label>
@@ -123,7 +123,7 @@
                     </div>
                     <button type="submit" class="btn btn-primary mb-3">Add Tool</button>
                 </form>
-            </section>
+            </div>
         </div>
     </div>
 </div>
