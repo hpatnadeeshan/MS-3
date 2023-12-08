@@ -74,7 +74,7 @@
         aria-labelledby="flashMessagesModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-body">
+                <div class="modal-body" id="flashMessagesModalLabel">
                     {% with messages = get_flashed_messages() %}
                     {% if messages %}
                     <ul>
