@@ -18,6 +18,7 @@
                 <div class="mb-3">
                     <label for="cuisine_name" class="form-label">Cuisine Type</label>
                     <select class="form-select" id="cuisine_name" name="cuisine_name" required>
+                        <option value="" disabled selected>Select Cuisine</option>
                         {% for cuisine in cuisines %}
                         <option value="{{ cuisine.id }}">{{ cuisine.cuisine_name }}</option>
                         {% endfor %}
