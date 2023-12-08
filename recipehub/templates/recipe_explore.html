@@ -3,7 +3,7 @@
 
 <section class="recipe-explore-container">
     <h2>Explore Recipes</h2>
-    <section class="row gx-4 gx-lg-5 justify-content-between">
+    <div class="row gx-4 gx-lg-5 justify-content-between">
         <div class="col-lg-4 col-md-6 mb-3">
             <!-- Search Bar -->
             <form method="get" action="{{ url_for('explore_recipes') }}">
@@ -35,10 +35,10 @@
                 </div>
             </form>
         </div>
-    </section>
+    </div>
 
     <!-- Display recipes -->
-    <section class="row">
+    <div class="row">
         {% for recipe in recipes %}
         <article class="col-lg-4 col-md-6 mb-4">
             <div class="card">
@@ -83,7 +83,7 @@
             </div>
         </article>
         {% endfor %}
-    </section>
+    </div>
 
 </section>
 
