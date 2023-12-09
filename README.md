@@ -140,15 +140,75 @@ For the overall body text of the document, the same font stack is applied, promo
 ### Future Features
 
 
+#### Share on Social Media
+
+Allow users to share their favorite recipes on various social media platforms.
+
+#### Recipe Comments
+
+Enable users to leave comments on recipes to share their thoughts, tips, or modifications.
+
+#### Instant Update for Tools and Cuisines
+
+Implement a feature that dynamically adds new tools or cuisines to the database without requiring a page reload when added from the add or edit recipe page.
+
 
 ## Technologies Used
 
 
++ **Google Chrome Dev Tools:** Used for debugging.
++ **Google Lighthouse:** Utilized for audits.
++ **Git:** Source control for version management.
++ **VS Code:** Integrated Development Environment (IDE) for coding.
++ **CodeAnywhere:** Online IDE for collaborative development.
++ **W3C Validator:** Used for HTML validation.
++ **Jigsaw Validator:** Used for CSS validation.
++ **JSHint:** Used for JavaScript validation.
++ **Python Validator:** [PEP8CI](https://pep8ci.herokuapp.com/) for Python code style validation.
++ **Heroku:** Deployment platform for hosting the application.
++ **SQLAlchemy ORM:** Object-Relational Mapping for Python.
++ **ElephantSQL:** Database server for PostgreSQL.
++ **PostgreSQL:** Relational database management system.
++ **Psycopg2:** PostgreSQL adapter for Python.
++ **jQuery:** JavaScript library for simplifying HTML DOM traversal and manipulation.
++ **Flask:** Micro web framework for Python.
+
 ### Languages Used
 
++ HTML5
++ CSS3
++ Java Script
++ Python
 
 ### Frameworks Libraries and Programmes Used
 
+
+1. **Bootstrap Icons**
+   - **Source:** [Bootstrap Icons](https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css)
+  
+2. **Google Fonts**
+   - **Fonts:** Merriweather Sans (400, 700), Merriweather (400, 300, 300italic, 400italic, 700, 700italic)
+   - **Source:** [Google Fonts](https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700) and [Google Fonts](https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic)
+
+3. **SimpleLightbox Plugin**
+   - **Version:** 2.1.0
+   - **Source:** [SimpleLightbox](https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css) and [SimpleLightbox](https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js)
+
+4. **Bootstrap**
+   - **Version:** 4.6.2
+   - **Source:** [Bootstrap](https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js)
+
+5. **Font Awesome**
+   - **Version:** 5 (Free)
+   - **Source:** [Font Awesome](https://kit.fontawesome.com/937ad0d044.js)
+
+6. **jQuery**
+   - **Version:** 3.7.1
+   - **Source:** [jQuery](https://code.jquery.com/jquery-3.7.1.js)
+
+7. **Bootstrap Select**
+   - **Version:** 1.13.1
+   - **Source:** [Bootstrap Select CSS](https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css) and [Bootstrap Select JS](https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js)
 
 
 ## Testing
