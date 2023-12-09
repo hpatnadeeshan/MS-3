@@ -2,8 +2,8 @@
 {% block content %}
 
 <!-- Edit Recipe Section -->
-<article class="add-recipe-container">
-    <section class="row justify-content-center">
+<section class="add-recipe-container">
+    <div class="row justify-content-center">
         <div class="col-lg-8">
 
             <!-- Edit Recipe Header -->
@@ -55,7 +55,7 @@
                 <div class="mb-3">
                     <label for="required_tools" class="form-label">Required Tools</label>
                     <select id="required_tools" name="required_tools[]" multiple class="form-select selectpicker"
-                        multiple data-live-search="true">
+                        data-live-search="true">
                         {% for tool in tools %}
                         <option value="{{ tool.id }}" {% if tool.id in associated_tools %}selected{% endif %}>
                             {{ tool.tool_name }}
@@ -95,7 +95,7 @@
             </form>
 
         </div>
-    </section>
-</article>
+    </div>
+</section>
 
 {% endblock %}
