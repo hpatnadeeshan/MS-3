@@ -4,17 +4,17 @@
     <h1>Manage Cuisines and Tools</h1>
 
     <!-- Add Cuisine Modal -->
-    <aside class="modal fade" id="addCuisineModal" tabindex="-1" role="dialog" aria-labelledby="addCuisineModalLabel"
+    <div class="modal fade" id="addCuisineModal" tabindex="-1" role="dialog" aria-labelledby="addCuisineModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
-            <section class="modal-content">
-                <header class="modal-header">
+            <div class="modal-content">
+                <div class="modal-header">
                     <h5 class="modal-title" id="addCuisineModalLabel">Add Cuisine</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                </header>
-                <section class="modal-body">
+                </div>
+                <div class="modal-body">
                     <form method="post" action="{{ url_for('add_cuisine') }}">
                         <div class="mb-3">
                             <label for="cuisine_name" class="form-label">Cuisine Name:</label>
@@ -22,22 +22,22 @@
                         </div>
                         <button type="submit" class="btn btn-primary">Add Cuisine</button>
                     </form>
-                </section>
-            </section>
+                </div>
+            </div>
         </div>
-    </aside>
+    </div>
     <!-- Add Tool Modal -->
-    <aside class="modal fade" id="addToolModal" tabindex="-1" role="dialog" aria-labelledby="addToolModalLabel"
+    <div class="modal fade" id="addToolModal" tabindex="-1" role="dialog" aria-labelledby="addToolModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
-            <section class="modal-content">
-                <header class="modal-header">
+            <div class="modal-content">
+                <div class="modal-header">
                     <h5 class="modal-title" id="addToolModalLabel">Add Tool</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                </header>
-                <section class="modal-body">
+                </div>
+                <div class="modal-body">
                     <form method="post" action="{{ url_for('add_tool') }}">
                         <div class="mb-3">
                             <label for="tool_name" class="form-label">Tool Name:</label>
@@ -52,10 +52,10 @@
                         </div>
                         <button type="submit" class="btn btn-primary">Add Tool</button>
                     </form>
-                </section>
-            </section>
+                </div>
+            </div>
         </div>
-    </aside>
+    </div>
 
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCuisineModal">
         Add Cuisine
@@ -75,17 +75,17 @@
         </li>
 
         <!-- Edit Cuisine Modal -->
-        <aside class="modal fade" id="editCuisineModal{{ cuisine.id }}" tabindex="-1" role="dialog"
+        <div class="modal fade" id="editCuisineModal{{ cuisine.id }}" tabindex="-1" role="dialog"
             aria-labelledby="editCuisineModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
-                <section class="modal-content">
-                    <header class="modal-header">
+                <div class="modal-content">
+                    <div class="modal-header">
                         <h5 class="modal-title" id="editCuisineModalLabel">Edit Cuisine</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                    </header>
-                    <section class="modal-body">
+                    </div>
+                    <div class="modal-body">
                         <!-- Edit Cuisine Form -->
                         <form action="{{ url_for('edit_cuisine', cuisine_id=cuisine.id) }}" method="post">
                             <div class="mb-3">
@@ -95,33 +95,33 @@
                             </div>
                             <button type="submit" class="btn btn-primary">Save Changes</button>
                         </form>
-                    </section>
-                </section>
+                    </div>
+                </div>
             </div>
-        </aside>
+        </div>
         <!-- Delete Cuisine Modal -->
-        <aside class="modal fade" id="deleteCuisineModal{{ cuisine.id }}" tabindex="-1" role="dialog"
+        <div class="modal fade" id="deleteCuisineModal{{ cuisine.id }}" tabindex="-1" role="dialog"
             aria-labelledby="deleteCuisineModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
-                <section class="modal-content">
-                    <header class="modal-header">
+                <div class="modal-content">
+                    <div class="modal-header">
                         <h5 class="modal-title" id="deleteCuisineModalLabel">Confirm Deletion</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                    </header>
-                    <section class="modal-body">
+                    </div>
+                    <div class="modal-body">
                         <p>Are you sure you want to delete the cuisine "{{ cuisine.cuisine_name }}"?</p>
-                    </section>
-                    <footer class="modal-footer">
+                    </div>
+                    <div class="modal-footer">
                         <form action="{{ url_for('delete_cuisine', cuisine_id=cuisine.id) }}" method="post">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-danger">Delete</button>
                         </form>
-                    </footer>
-                </section>
+                    </div>
+                </div>
             </div>
-        </aside>
+        </div>
         {% endfor %}
     </ul>
 
@@ -138,17 +138,17 @@
         </li>
 
         <!-- Edit Tool Modal -->
-        <aside class="modal fade" id="editToolModal{{ tool.id }}" tabindex="-1" role="dialog"
+        <div class="modal fade" id="editToolModal{{ tool.id }}" tabindex="-1" role="dialog"
             aria-labelledby="editToolModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
-                <section class="modal-content">
-                    <header class="modal-header">
+                <div class="modal-content">
+                    <div class="modal-header">
                         <h5 class="modal-title" id="editToolModalLabel">Edit Tool</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                    </header>
-                    <section class="modal-body">
+                    </div>
+                    <div class="modal-body">
                         <!-- Edit Tool Form -->
                         <form action="{{ url_for('edit_tool', tool_id=tool.id) }}" method="post">
                             <div class="mb-3">
@@ -165,34 +165,34 @@
                             </div>
                             <button type="submit" class="btn btn-primary">Save Changes</button>
                         </form>
-                    </section>
-                </section>
+                    </div>
+                </div>
             </div>
-        </aside>
+        </div>
         <!-- Delete Tool Modal -->
-        <aside class="modal fade" id="deleteToolModal{{ tool.id }}" tabindex="-1" role="dialog"
+        <div class="modal fade" id="deleteToolModal{{ tool.id }}" tabindex="-1" role="dialog"
             aria-labelledby="deleteToolModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
-                <section class="modal-content">
-                    <header class="modal-header">
+                <div class="modal-content">
+                    <div class="modal-header">
                         <h5 class="modal-title" id="deleteToolModalLabel">Confirm Deletion</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                    </header>
-                    <section class="modal-body">
+                    </div>
+                    <div class="modal-body">
                         <p>Are you sure you want to delete the tool "{{ tool.tool_name }}" (Brand: {{ tool.brand_name
                             }})?</p>
-                    </section>
-                    <footer class="modal-footer">
+                    </div>
+                    <div class="modal-footer">
                         <form action="{{ url_for('delete_tool', tool_id=tool.id) }}" method="post">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-danger">Delete</button>
                         </form>
-                    </footer>
-                </section>
+                    </div>
+                </div>
             </div>
-        </aside>
+        </div>
         {% endfor %}
     </ul>
 </section>
