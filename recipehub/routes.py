@@ -1,17 +1,19 @@
 from flask_login import login_user, logout_user, login_required, current_user
 from werkzeug.security import check_password_hash, generate_password_hash
-from flask import render_template, request, redirect, url_for,flash,jsonify
-from recipehub import app, db,login_manager
-from recipehub.models import Cuisine, Recipe, Tools, RecipeTool, User,ContactSubmission
+from flask import render_template, request, redirect, url_for, flash, jsonify
+from recipehub import app, db, login_manager
+from recipehub.models import (
+    Cuisine, Recipe, Tools, RecipeTool, User, ContactSubmission)
 import random
+
 
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
 
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    
     errors = []
     if request.method == 'POST':
         username = request.form['username']
@@ -28,6 +30,7 @@ def login():
 
     return render_template('login.html', errors=errors)
 
+
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     errors = []
@@ -43,7 +46,8 @@ def signup():
         elif password != confirm_password:
             errors.append('Passwords do not match. Please try again.')
         elif existing_user:
-            errors.append('Username is already taken. Please choose a different one.')
+            errors.append('Username is already taken. '
+                          'Please choose a different one.')
 
         if not errors:
             hashed_password = generate_password_hash(password)
@@ -56,6 +60,7 @@ def signup():
 
     return render_template('signup.html', errors=errors)
 
+
 @app.route('/logout')
 @login_required
 def logout():
@@ -63,6 +68,7 @@ def logout():
     flash('Logout successful!', 'success')
     print("logout"+str(current_user.is_authenticated))
     return redirect(url_for('home'))
+
 
 @app.route("/")
 # @login_required
@@ -92,7 +98,7 @@ def add_recipe():
     tools = list(Tools.query.order_by(Tools.tool_name).all())
     if request.method == 'POST':
 
-       # Create a new recipe
+        # Create a new recipe
         new_recipe = Recipe(
             recipe_name=request.form.get('recipe_name'),
             cuisine_id=request.form.get('cuisine_name'),
@@ -115,7 +121,6 @@ def add_recipe():
 
         db.session.commit()
         flash('successfully added!', 'success')
-        
 
         return redirect(url_for("add_recipe"))
 
@@ -143,15 +148,18 @@ def edit_recipe(recipe_id):
         flash('successfully modified!', 'success')
         return redirect(url_for('view_recipe', recipe_id=recipe.id))
 
-    
     tools = Tools.query.order_by(Tools.tool_name).all()
 
     # Retrieve associated tools for the selected recipe
-    associated_tools = [recipe_tool.tool_id for recipe_tool in RecipeTool.query.filter_by(recipe_id=recipe_id).all()]
+    associated_tools = [
+        recipe_tool.tool_id for recipe_tool in RecipeTool.query.filter_by(
+            recipe_id=recipe_id).all()]
     # associated_tools = RecipeTool.query.filter_by(recipe_id=recipe_id).all()
     cuisines = list(Cuisine.query.order_by(Cuisine.cuisine_name).all())
 
-    return render_template('edit_recipe.html', recipe=recipe, cuisines=cuisines, tools=tools, associated_tools=associated_tools)
+    return render_template(
+        'edit_recipe.html', recipe=recipe, cuisines=cuisines, tools=tools,
+        associated_tools=associated_tools)
 
 
 @app.route('/explore_recipes')
@@ -162,9 +170,6 @@ def explore_recipes():
 
     # Filter recipes based on user selection
     selected_cuisine_id = request.args.get('cuisine')
-    # print(f"Cuisine ID: {selected_cuisine}")
-    # print(recipes)
-    print(cuisines)
     selected_cuisine = None
     if selected_cuisine_id:
         selected_cuisine = Cuisine.query.get(selected_cuisine_id)
@@ -177,10 +182,11 @@ def explore_recipes():
         recipes = Recipe.query.filter(
             Recipe.recipe_name.ilike(f'%{search_query}%')).all()
 
-    return render_template('recipe_explore.html', recipes=recipes, cuisines=cuisines, selected_cuisine=selected_cuisine)
+    return render_template(
+        'recipe_explore.html', recipes=recipes, cuisines=cuisines,
+        selected_cuisine=selected_cuisine)
 
 
-    
 @app.route('/delete_recipe/<int:recipe_id>', methods=['POST'])
 @login_required
 def delete_recipe(recipe_id):
@@ -194,8 +200,9 @@ def delete_recipe(recipe_id):
         db.session.commit()
         flash('successfully deleted!', 'success')
 
-    # Redirect to the recipe explore page or any other appropriate page
+    # Redirect to the recipe explore page
     return redirect(url_for('explore_recipes'))
+
 
 @app.route('/manage_data')
 @login_required
@@ -203,6 +210,7 @@ def manage_data():
     cuisines = list(Cuisine.query.order_by(Cuisine.cuisine_name).all())
     tools = list(Tools.query.order_by(Tools.tool_name).all())
     return render_template('manage_data.html', cuisines=cuisines, tools=tools)
+
 
 @app.route('/add_cuisine', methods=['GET', 'POST'])
 @login_required
@@ -212,20 +220,19 @@ def add_cuisine():
         new_cuisine = Cuisine(cuisine_name=cuisine_name)
         db.session.add(new_cuisine)
         db.session.commit()
-                 # Check Referer header to determine where the request came from
+        # Check Referer header to determine where the request came from
         referer = request.headers.get('Referer')
         if referer and 'add_recipe' in referer:
-            # If the request is coming from add_recipe.html, return a response to close the modal
+            # If the request is coming from add_recipe.html,
+            # return a response to close the modal
             flash('successfully added!', 'success')
             return redirect(url_for('add_recipe'))
         else:
-            # If the request is coming from any other page, redirect to manage_data
+            # If the request is coming from any other page,
+            # redirect to manage_data
             flash('successfully added!', 'success')
             return redirect(url_for('manage_data'))
 
-        # return redirect(url_for('manage_data'))
-
-    # return render_template('manage_data.html')
 
 @app.route('/add_tool', methods=['GET', 'POST'])
 @login_required
@@ -236,19 +243,18 @@ def add_tool():
         new_tool = Tools(tool_name=tool_name, brand_name=brand_name)
         db.session.add(new_tool)
         db.session.commit()
-         # Check Referer header to determine where the request came from
+        # Check Referer header to determine where the request came from
         referer = request.headers.get('Referer')
         if referer and 'add_recipe' in referer:
-            # If the request is coming from add_recipe.html, return a response to close the modal
+            # If the request is coming from add_recipe.html,
+            # return a response to close the modal
             flash('successfully added!', 'success')
             return redirect(url_for('add_recipe'))
         else:
-            # If the request is coming from any other page, redirect to manage_data
+            # If the request is coming from any other page,
+            # redirect to manage_data
             flash('successfully added!', 'success')
             return redirect(url_for('manage_data'))
-
-        # return redirect(url_for('manage_data'))
-    # return render_template('manage_data.html')
 
 
 @app.route('/edit_cuisine/<int:cuisine_id>', methods=['GET', 'POST'])
@@ -262,7 +268,6 @@ def edit_cuisine(cuisine_id):
         flash('successfully modified!', 'success')
         return redirect(url_for('manage_data'))
 
-    # return render_template('edit_cuisine.html', cuisine=cuisine)
 
 @app.route('/edit_tool/<int:tool_id>', methods=['GET', 'POST'])
 @login_required
@@ -276,7 +281,6 @@ def edit_tool(tool_id):
         flash('successfully modified!', 'success')
         return redirect(url_for('manage_data'))
 
-    # return render_template('edit_tool.html', tool=tool)
 
 @app.route('/delete_cuisine/<int:cuisine_id>', methods=['POST'])
 @login_required
@@ -287,6 +291,7 @@ def delete_cuisine(cuisine_id):
     flash('successfully deleted!', 'success')
     return redirect(url_for('manage_data'))
 
+
 @app.route('/delete_tool/<int:tool_id>', methods=['POST'])
 @login_required
 def delete_tool(tool_id):
@@ -296,10 +301,12 @@ def delete_tool(tool_id):
     flash('successfully deleted!', 'success')
     return redirect(url_for('manage_data'))
 
+
 @app.route('/profile')
 @login_required
 def profile():
     return render_template('profile.html', current_user=current_user)
+
 
 @app.route('/contact_us', methods=['POST'])
 def contact_us():
@@ -310,12 +317,15 @@ def contact_us():
         message = request.form.get('message')
 
         # Create a new contact submission
-        new_submission = ContactSubmission(name=name, email=email, phone=phone, message=message)
+        new_submission = ContactSubmission(
+            name=name, email=email, phone=phone,
+            message=message)
         db.session.add(new_submission)
         db.session.commit()
         flash('successfully send!', 'success')
 
         return redirect(url_for('home'))
+
 
 @login_required
 @app.route('/view_messages')
