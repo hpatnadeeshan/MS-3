@@ -551,6 +551,7 @@ You will need to deploy the application using Heroku.
 2. Google Fonts used in the website
 3. jQuery library used throughout the code.
 4. w3schools was used as a general source of knowledge
+5. https://github.com/Isabella-Mitchell/gather-recipe-website/edit/main/README.md for deployment.
 
 
 ### Acknowledgements
