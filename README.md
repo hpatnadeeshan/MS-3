@@ -152,9 +152,7 @@ Enable users to leave comments on recipes to share their thoughts, tips, or modi
 
 Implement a feature that dynamically adds new tools or cuisines to the database without requiring a page reload when added from the add or edit recipe page.
 
-
 ## Technologies Used
-
 
 + **Google Chrome Dev Tools:** Used for debugging.
 + **Google Lighthouse:** Utilized for audits.
@@ -180,8 +178,7 @@ Implement a feature that dynamically adds new tools or cuisines to the database 
 + Java Script
 + Python
 
-### Frameworks Libraries and Programmes Used
-
+### Frameworks, Libraries, and Programs Used
 
 1. **Bootstrap Icons**
    - **Source:** [Bootstrap Icons](https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css)
@@ -209,6 +206,13 @@ Implement a feature that dynamically adds new tools or cuisines to the database 
 7. **Bootstrap Select**
    - **Version:** 1.13.1
    - **Source:** [Bootstrap Select CSS](https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css) and [Bootstrap Select JS](https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js)
+
+8. **SQLAlchemy ORM**
+   - **Source:** [SQLAlchemy](https://www.sqlalchemy.org/)
+
+9. **Flask**
+   - **Source:** [Flask](https://flask.palletsprojects.com/)
+
 
 
 ## Testing
