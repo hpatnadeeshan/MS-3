@@ -219,15 +219,102 @@ Implement a feature that dynamically adds new tools or cuisines to the database 
 
 ### Validator Testing
 
+Validation is done throughout the development and all the error and warnings are fixed.
 
+following validators have been used to validate HTML and CSS codes.
+
+### <em>HTML Validator</em>
+
++ [W3C validator](https://validator.w3.org/) used for HTML validating
+
+![Html Validation](./recipehub/static/assets/validate/html.png)
+
+### <em>CSS Validator</em>
+
++ [CSS validation](https://jigsaw.w3.org/css-validator/) used for CSS validation
+
+![CSS validation](./recipehub/static/assets/validate/css-validate.png)
+
+### <em>Java Script Validator</em>
+
++ [JSHint Validator](https://jshint.com/) used for CSS validation
+
+![Java Script Validation](./recipehub/static/assets/validate/java-script.png)
+
+### <em>Python Validator</em>
+
++ [PEP8CI Validator](https://pep8ci.herokuapp.com/) used for CSS validation
+
+![Python Validation](./recipehub/static/assets/validate/routes.py-validate.png)
+![Python Validation](./recipehub/static/assets/validate/models.py-validate.png)
 
 ### Responsiveness
 
+| Page Name       | Desktop View       | Tablet View        | Mobile View        |
+|-----------------|--------------------|--------------------|--------------------|
+| Add Recipe      | [Link](./recipehub/static/assets/responsiveness/desktop-add-recipe.png)          | [Link](./recipehub/static/assets/responsiveness/ipad-add-recipe.png)          | [Link](./recipehub/static/assets/responsiveness/iphone-se-add-recipe.png)          |
+| Edit Recipe     | [Link](./recipehub/static/assets/responsiveness/desktop-edit-recipe.png)          | [Link](./recipehub/static/assets/responsiveness/ipad-edit-recipe.png)          | [Link](./recipehub/static/assets/responsiveness/iphone-se-edit-recipe.png)          |
+| Home            | [Link](./recipehub/static/assets/responsiveness/desktop-home.png)          | [Link](./recipehub/static/assets/responsiveness/ipad-home.png)          | [Link](./recipehub/static/assets/responsiveness/iphone-se-home.png)          |
+| Login           | [Link](./recipehub/static/assets/responsiveness/desktop-login.png)          | [Link](./recipehub/static/assets/responsiveness/ipad-login.png)          | [Link](./recipehub/static/assets/responsiveness/iphone-se-login.png)          |
+| Manage data     | [Link](./recipehub/static/assets/responsiveness/desktop-manage-data.png)          | [Link](./recipehub/static/assets/responsiveness/ipad-manage-data.png)          | [Link](./recipehub/static/assets/responsiveness/iphone-se-manage-data.png)          |
+| View Messages   | [Link](./recipehub/static/assets/responsiveness/desktop-messages.png)          | [Link](./recipehub/static/assets/responsiveness/ipad-view-recipe.png)          | [Link](./recipehub/static/assets/responsiveness/iphone-se-messages.png)          |
+| Profile         | [Link](./recipehub/static/assets/responsiveness/desktop-profile.png)          | [Link](./recipehub/static/assets/responsiveness/ipad-profile.png)          | [Link](./recipehub/static/assets/responsiveness/iphone-se-profile.png)          |
+| Recipe Explore  | [Link](./recipehub/static/assets/responsiveness/desktop-recipe-explore.png)          | [Link](./recipehub/static/assets/responsiveness/ipad-recipe-explore.png)          | [Link](./recipehub/static/assets/responsiveness/iphone-se-recipe-explore.png)          |
+| Signup          | [Link](./recipehub/static/assets/responsiveness/desktop-sign-up.png)          | [Link](./recipehub/static/assets/responsiveness/ipad-sign-up.png)          | [Link](./recipehub/static/assets/responsiveness/iphone-se-sign-up.png)          |
+| View Recipe     | [Link](./recipehub/static/assets/responsiveness/desktop-view-recipe.png)          | [Link](./recipehub/static/assets/responsiveness/ipad-view-recipe.png)          | [Link](./recipehub/static/assets/responsiveness/iphone-se-view-recipe.png)          |
 
+
+### Testing Accessibility and Performance
+
+I used google lighthouse to check Accessibility and Performance.
+
+|                    | Performance | Accessibility | Best Practices | SEO |
+| ------------------ | ----------- | ------------- | -------------- | --- |
+| [Add Recipe/Desktop view](./recipehub/static/assets/accessibilty/desktop-add-recipe.png)      | 97%         | 100%          | 100%           | 89% |
+| [Add Recipe/Mobile view](./recipehub/static/assets/accessibilty/mobile-add-recipe.png)       | 71%         | 100%          | 100%           | 91% |
+| [Edit Recipe/Desktop view](./recipehub/static/assets/accessibilty/desktop-edit-recipe.png)      | 96%         | 100%          | 100%           | 89% |
+| [Edit Recipe/Mobile view](./recipehub/static/assets/accessibilty/mobile-edit-recipe.png)       | 72%         | 100%          | 100%           | 91% |
+| [Home/Desktop view](./recipehub/static/assets/accessibilty/desktop-home.png)      | 84%         | 100%          | 100%           | 90% |
+| [Home/Mobile view](./recipehub/static/assets/accessibilty/mobile-home.png)       | 70%         | 100%          | 100%           | 92% |
+| [Login/Desktop view](./recipehub/static/assets/accessibilty/desktop-login.png)      | 91%         | 100%          | 100%           | 89% |
+| [Login/Mobile view](./recipehub/static/assets/accessibilty/mobile-login.png)       | 72%         | 100%          | 100%           | 91% |
+| [Manage data/Desktop view](./recipehub/static/assets/accessibilty/desktop-manage-data.png)      | 96%         | 94%          | 100%           | 89% |
+| [Manage data/Mobile view](./recipehub/static/assets/accessibilty/mobile-manage-data.png)       | 64%         | 94%          | 100%           | 91% |
+| [View Messages/Desktop view](./recipehub/static/assets/accessibilty/desktop-messages.png)      | 94%         | 100%          | 100%           | 89% |
+| [View Messages/Mobile view](./recipehub/static/assets/accessibilty/mobile-messages.png)       | 73%         | 100%          | 100%           | 91% |
+| [Profile/Desktop view](./recipehub/static/assets/accessibilty/desktop-profile.png)      | 94%         | 100%          | 100%           | 89% |
+| [Profile/Mobile view](./recipehub/static/assets/accessibilty/mobile-profile.png)       | 75%         | 100%          | 100%           | 91% |
+| [Recipe Explore/Desktop view](./recipehub/static/assets/accessibilty/desktop-recipe-explore.png)      | 94%         | 100%          | 100%           | 90% |
+| [Recipe Explore/Mobile view](./recipehub/static/assets/accessibilty/mobile-recipe-explore.png)       | 71%         | 100%          | 100%           | 92% |
+| [Signup/Desktop view](./recipehub/static/assets/accessibilty/desktop-sign-up.png)      | 96%         | 100%          | 100%           | 89% |
+| [Signup/Mobile view](./recipehub/static/assets/accessibilty/mobile-sign-up.png)       | 77%         | 100%          | 100%           | 91% |
+| [View Recipe/Desktop view](./recipehub/static/assets/accessibilty/desktop-view-recipe.png)      | 98%         | 100%          | 100%           | 90% |
+| [View Recipe/Mobile view](./recipehub/static/assets/accessibilty/mobile-view-recipe.png)       | 77%         | 100%          | 100%           | 92% |
 
 
 ### Testing User Stories
 
+#### As a Visitor (Not Logged In):
+
+- I can explore recipes by cuisine.
+- I can search for recipes based on ingredients or titles.
+- I can view the details of a recipe without logging in.
+
+#### As a Registered User:
+
+- I can log in to the application.
+- I can log out of the application.
+- I can add a new recipe, including details like title, cuisine, ingredients, and preparation steps.
+- I can edit or delete the recipes I've added.
+- I can see how many recipes I've contributed on my profile page.
+- I can see a list of all the recipes I've added.
+- I can use the application on my mobile device as it is responsive and easy to navigate.
+
+#### Site Owner:
+
+- I can see which recipes are the most popular.
+- I can present users with suggestions for my brand's kitchen tools when they add required tools to a recipe.
+- I can feature certain recipes on the homepage.
 
 
 ### Problems Encountered
@@ -237,7 +324,11 @@ Implement a feature that dynamically adds new tools or cuisines to the database 
 ## Deployment
 
 
+## Admin credentials/ Superuser credentials
 
++ username- admin
++ password-12345678
+  
 ## Credits
 
 ### Code
