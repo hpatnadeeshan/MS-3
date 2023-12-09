@@ -72,7 +72,7 @@
                     class="fas fa-edit"></i></a> <!-- Edit icon -->
             <a href="#" data-toggle="modal" data-target="#deleteCuisineModal{{ cuisine.id }}"><i
                     class="fas fa-trash"></i></a> <!-- Delete icon -->
-            <p>{{ cuisine.cuisine_name }}</p>
+            <span>{{ cuisine.cuisine_name }}</span>
 
             <!-- Edit Cuisine Modal -->
             <div class="modal fade" id="editCuisineModal{{ cuisine.id }}" tabindex="-1" role="dialog"
@@ -134,8 +134,7 @@
             <!-- Edit icon -->
             <a href="#" data-toggle="modal" data-target="#deleteToolModal{{ tool.id }}"><i class="fas fa-trash"></i></a>
             <!-- Delete icon -->
-            <p>{{ tool.tool_name }} (Brand: {{ tool.brand_name }})</p>
-            {{ tool.tool_name }} (Brand: {{ tool.brand_name }})
+            <span>{{ tool.tool_name }} (Brand: {{ tool.brand_name }})</span>
             <!-- Edit Tool Modal -->
             <div class="modal fade" id="editToolModal{{ tool.id }}" tabindex="-1" role="dialog"
                 aria-labelledby="editToolModalLabel{{ tool.id }}" aria-hidden="true">
