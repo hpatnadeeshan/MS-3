@@ -4,9 +4,7 @@
 <section class="add-recipe-container">
     <div class="row justify-content-center">
         <div class="col-lg-8">
-
             <h2>Add Recipe</h2>
-
             <form method="post" action="{{ url_for('add_recipe') }}">
                 <!-- Recipe Name -->
                 <div class="mb-3">
@@ -20,11 +18,11 @@
                     <select class="form-select" id="cuisine_name" name="cuisine_name" required>
                         <option value="" disabled selected>Select Cuisine</option>
                         {% for cuisine in cuisines %}
-                        <option value="{{ cuisine.id }}">{{ cuisine.cuisine_name }}</option>
+                            <option value="{{ cuisine.id }}">{{ cuisine.cuisine_name }}</option>
                         {% endfor %}
                     </select>
                     <button type="button" class="btn btn-outline-secondary" data-toggle="modal"
-                        data-target="#addCuisineModal" aria-label="Add cuisine">
+                            data-target="#addCuisineModal" aria-label="Add cuisine">
                         <i class="fas fa-plus"></i> <!-- Font Awesome plus icon -->
                     </button>
                 </div>
@@ -39,24 +37,25 @@
                 <div class="mb-3">
                     <label for="preparation_steps" class="form-label">Preparation Steps</label>
                     <textarea class="form-control" id="preparation_steps" name="preparation_steps" rows="5"
-                        required></textarea>
+                              required></textarea>
                 </div>
 
                 <!-- Required Tools -->
                 <div class="mb-3">
                     <label for="required_tools" class="form-label">Required Tools</label>
                     <select id="required_tools" name="required_tools[]" multiple class="form-select selectpicker"
-                        data-live-search="true" required>
+                            data-live-search="true" required>
                         <option value="" disabled selected>Select Tool(s)</option>
                         {% for tool in tools %}
-                        <option value="{{ tool.id }}">{{ tool.tool_name }}</option>
+                            <option value="{{ tool.id }}">{{ tool.tool_name }}</option>
                         {% endfor %}
                     </select>
                     <button type="button" class="btn btn-outline-secondary" data-toggle="modal"
-                        data-target="#addToolModal" aria-label="Add Tools">
+                            data-target="#addToolModal" aria-label="Add Tools">
                         <i class="fas fa-plus"></i> <!-- Font Awesome plus icon -->
                     </button>
                 </div>
+
                 <div id="selectedToolsContainer">
                     <p id="selectedToolsList"></p>
                 </div>
@@ -69,13 +68,13 @@
 
                 <button type="submit" class="btn btn-primary b-margin">Add Recipe</button>
             </form>
-
         </div>
     </div>
 </section>
+
 <!-- Add Cuisine Modal -->
 <div class="modal fade" id="addCuisineModal" tabindex="-1" aria-labelledby="addCuisineModalLabel"
-    aria-hidden="true">
+     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <header class="modal-header">
@@ -84,6 +83,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </header>
+
             <div class="modal-body">
                 <form method="post" action="{{ url_for('add_cuisine') }}">
                     <div class="mb-3">
@@ -96,9 +96,10 @@
         </div>
     </div>
 </div>
+
 <!-- Add Tool Modal -->
 <div class="modal fade" id="addToolModal" tabindex="-1" aria-labelledby="addToolModalLabel"
-    aria-hidden="true">
+     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <header class="modal-header">
@@ -107,6 +108,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </header>
+
             <div class="modal-body">
                 <form method="post" action="{{ url_for('add_tool') }}">
                     <div class="mb-3">

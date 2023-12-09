@@ -5,6 +5,7 @@
     <h1>Messages</h1>
 
     {% if messages %}
+    <!-- Display messages in a table -->
     <table>
         <thead>
             <tr>
@@ -17,6 +18,7 @@
         </thead>
         <tbody>
             {% for message in messages %}
+            <!-- Display each message row -->
             <tr>
                 <td>{{ message.id }}</td>
                 <td>{{ message.name }}</td>
@@ -28,6 +30,7 @@
         </tbody>
     </table>
     {% else %}
+    <!-- Display a message when there are no messages -->
     <p>No messages yet.</p>
     {% endif %}
 </section>

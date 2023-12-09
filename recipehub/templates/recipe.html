@@ -5,9 +5,11 @@
     <div class="row justify-content-center">
         <article class="col-lg-8">
 
+            <!-- Recipe Image -->
             <img class="img-fluid w-100" src="{{ recipe.image_link }}" alt="{{ recipe.recipe_name }} Image">
             <h1>{{ recipe.recipe_name }}</h1>
 
+            <!-- Ingredients Section -->
             <section>
                 <h2>Ingredients:</h2>
                 <ul>
@@ -17,6 +19,7 @@
                 </ul>
             </section>
 
+            <!-- Preparation Steps Section -->
             <section>
                 <h2>Preparation Steps:</h2>
                 <ul class="no-bullets">
@@ -26,6 +29,7 @@
                 </ul>
             </section>
 
+            <!-- Required Tools Section (if tools are specified) -->
             {% if tools %}
             <section>
                 <h2>Required Tools:</h2>

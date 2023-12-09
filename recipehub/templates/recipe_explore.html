@@ -1,11 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
 
+<!-- Recipe Explore Section -->
 <section class="recipe-explore-container">
     <h2>Explore Recipes</h2>
+
+    <!-- Search Bar -->
     <div class="row gx-4 gx-lg-5 justify-content-between">
         <div class="col-lg-4 col-md-6 mb-3">
-            <!-- Search Bar -->
             <form method="get" action="{{ url_for('explore_recipes') }}">
                 <label for="search">Search Recipes:</label>
                 <div class="input-group">
@@ -15,15 +17,13 @@
             </form>
         </div>
 
+        <!-- Filter Options -->
         <div class="col-lg-4 col-md-6 mb-3">
-            <!-- Filter Options -->
             <form method="get" action="{{ url_for('explore_recipes') }}">
                 <label for="cuisine">Select Cuisine:</label>
                 <div class="input-group">
                     <select name="cuisine" id="cuisine" class="form-select">
-                        <option value="" {% if not selected_cuisine %}selected{% endif %}>
-                            All
-                        </option>
+                        <option value="" {% if not selected_cuisine %}selected{% endif %}>All</option>
                         {% for cuisine in cuisines %}
                         <option value="{{ cuisine.id }}" {% if selected_cuisine and cuisine.id==selected_cuisine.id
                             %}selected{% endif %}>
@@ -42,20 +42,25 @@
         {% for recipe in recipes %}
         <article class="col-lg-4 col-md-6 mb-4">
             <div class="card">
+                <!-- Recipe Image -->
                 <img class="card-img-top" src="{{ recipe.image_link }}" alt="{{ recipe.recipe_name }}">
                 <div class="card-body">
+                    <!-- Recipe Details -->
                     <h3 class="card-title">{{ recipe.recipe_name }}</h3>
                     <p class="card-text">Cuisine: {{ recipe.cuisine.cuisine_name }}</p>
+
+                    <!-- View Recipe Button -->
                     <a href="{{ url_for('view_recipe', recipe_id=recipe.id) }}" class="btn btn-primary">View Recipe</a>
+
                     {% if current_user.is_authenticated and current_user.is_admin %}
-                    <!-- Only show "Edit" and "Delete" buttons for admin users -->
-                    <a href="{{ url_for('edit_recipe', recipe_id=recipe.id) }}" class="btn btn-success">Edit </a>
+                    <!-- Edit and Delete Buttons for Admin Users -->
+                    <a href="{{ url_for('edit_recipe', recipe_id=recipe.id) }}" class="btn btn-success">Edit</a>
                     <button type="button" class="btn btn-danger" data-toggle="modal"
                         data-target="#deleteModal{{ recipe.id }}">
                         Delete
                     </button>
-                    {% endif %}
-                    <!-- The Modal -->
+
+                    <!-- Delete Confirmation Modal -->
                     <div class="modal fade" id="deleteModal{{ recipe.id }}" tabindex="-1" role="dialog"
                         aria-labelledby="deleteModalLabel{{ recipe.id }}" aria-hidden="true">
                         <div class="modal-dialog" role="document">
@@ -71,7 +76,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                    <!-- delete form submission here -->
+                                    <!-- Delete Form Submission -->
                                     <form method="post" action="{{ url_for('delete_recipe', recipe_id=recipe.id) }}">
                                         <button type="submit" class="btn btn-danger">Delete</button>
                                     </form>
@@ -79,12 +84,12 @@
                             </div>
                         </div>
                     </div>
+                    {% endif %}
                 </div>
             </div>
         </article>
         {% endfor %}
     </div>
-
 </section>
 
 {% endblock %}
