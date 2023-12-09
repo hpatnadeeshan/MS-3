@@ -136,6 +136,133 @@ For the overall body text of the document, the same font stack is applied, promo
 ### Existing Features
 
 
+1. Navigation Bar
+
+![Logo](./recipehub/static/assets/features/navigation-bar.png)
+
++ Welcome to Recipe Hub, your go-to platform for all things recipes! Explore a world of culinary delights and discover new dishes.
+Clicking on the logo will smoothly navigate you to the top of the current page, providing a convenient way to quickly access the top of the content.
+Utilize the navigation bar to seamlessly navigate to relevant pages. Find what you're looking for with ease, and enjoy the diverse range of recipes at your fingertips.
+
+2. Sign Up
+
+![Logo](./recipehub/static/assets/features/sign-up.png)
+
++ If you're not a registered user, clicking on  Sign up page and join our community of food enthusiasts!
+
+
+3. Explore 
+
+![Logo](./recipehub/static/assets/features/explore.png)
+
++ If you click on the "Explore", it will take you to the Recipe Explore page, where you can discover a variety of exciting recipes. 
+
+4. Featured recipes in home page
+
+![Logo](./recipehub/static/assets/features/featured-recipe-view.png)
+
++ Discover our "Featured Recipes" section to explore popular and trending dishes on the platform. Find inspiration and try out some of the most loved recipes by our community!
+
+5. Get in touch 
+
+![Logo](./recipehub/static/assets/features/home-last.png)
+
++ If you have any inquiries or feedback, please fill out the contact form.We appreciate your engagement and look forward to hearing from you!
+
+6. Social Icons
+
+![Logo](./recipehub/static/assets/features/home-last-2.png)
+
++ Look for our social icons to navigate to our official social media pages. Follow us  and join the conversation, share your favorite recipes, and be part of our vibrant community.
+We love connecting with our users, and your support means the world to us!
+
+7. Search bar in expore recipes
+
+![Logo](./recipehub/static/assets/features/2.1.png)
+
++Discover recipes quickly and efficiently using our powerful search bar. Simply enter keywords,  and let our platform find the perfect recipes for you. Enhance your culinary experience with Recipe Hub's easy-to-use search functionality.
+Happy cooking!
+
+8. Filter in select cuisine
+
+![Logo](./recipehub/static/assets/features/2.2.png)
+
++ Easily narrow down your recipe choices by filtering them based on cuisine preferences. Whether you're in the mood for Italian, Mexican, or Asian flavors, our platform has you covered. Use the "Filter" feature to customize your recipe browsing experience and discover the perfect dish for any occasion.
+
+9. Modify recipes
+
+![Logo](./recipehub/static/assets/features/2.3.png)
+
++ Recipes can be modified by the admin, the recipe owner, or any registered user. 
+Enjoy the freedom to make each recipe your own and share your culinary creativity with the Recipe Hub community!
+
+10.   Add a  cuisine type
+
+![Logo](./recipehub/static/assets/features/2.4.png)
+
++ Recipe Hub values the richness of various cuisines from around the globe. If you have a unique cuisine you'd like to contribute, follow the ''Add'' feature to add a new cuisine type.
+
+11.  Add a new tool 
+
+![Logo](./recipehub/static/assets/features/2.5.png)
+
++ At Recipe Hub, we believe in the power of innovation and collaboration. If you have a favorite kitchen tool that's not in our current collection, you can contribute by adding a new tool.
+
+12.  Save changes 
+
+![Logo](./recipehub/static/assets/features/2.6.png)
+
++ After modifying a recipe, ensure your updates are preserved by using the "Save Changes" feature. Whether you're the admin, the recipe owner, or a registered user making adjustments, simply click the "Save Changes" button to update the recipe with your modifications.
+We value your culinary contributions, and saving changes ensures that your personalized touch is reflected in the Recipe Hub community. 
+
+13.  Add recipe
+
+![Logo](./recipehub/static/assets/features/3.3.png)
+
++ Have a unique recipe you'd like to share with the Recipe Hub community? Click on the "Add Recipe" to start the process. 
+
+14.  User information
+
+![Logo](./recipehub/static/assets/features/4.1.png)
+
++ Easily access information about your Recipe Hub profile:
+- **User Name:** See your unique username displayed for a personalized experience.
+- **Number of Recipes:** Track the number of recipes you've contributed to the platform.
+
+15.  Manage data
+
+![Logo](./recipehub/static/assets/features/4.2.png)
+
++ As a user on Recipe Hub, you have the ability to manage your data efficiently:
+
+16.  View messages 
+
+![Logo](./recipehub/static/assets/features/4.3.png)
+
++ For administrators, Recipe Hub provides a dedicated section to view messages.
+Efficiently manage and respond to user messages to foster a supportive and engaging community.
+
+17.  Add cuisine and tools
+
+![Logo](./recipehub/static/assets/features/4.4.png)
+
++ As a user on Recipe Hub, you have the ability to contribute to the platform's diversity by managing cuisines and tools:
+- **Add Cuisine:** Introduce a unique culinary style to our platform by Clicking on "Add Cuisine"
+- **Add Tool:** Share your favorite kitchen tools with the community by Clicking on "Add Tool".
+
+18.  Cuisines
+
+![Logo](./recipehub/static/assets/features/4.5.png)
+
++ Modify existing cuisines to reflect changes or improvements. Click on "Edit Cuisine," make the necessary adjustments, and save the changes. Click on "Delete Cuisine" to remove a cuisine from our collection.
+
+19.  Tools
+
+![Logo](./recipehub/static/assets/features/4.6.png)
+
++ **Edit Tool:** Modify existing tools to reflect changes or improvements. Click on "Edit Tool," make the necessary adjustments, and save the changes.
+- **Delete Tool:** Remove tools that are no longer relevant or accurate. Click on "Delete Tool" to remove a tool from our collection.
+
 
 ### Future Features
 
