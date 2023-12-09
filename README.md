@@ -37,7 +37,7 @@ Site Owner:
 
 ### Design
 
-
+![Logo](./recipehub/static/assets/other/design.png)
 
 #### Colour Scheme
 
@@ -114,21 +114,21 @@ For the overall body text of the document, the same font stack is applied, promo
 
 [Recipe Explore page tablet](./recipehub/static/assets/wireframes/tablet-recipe-explore.jpg)
 
-[Add and Edit page tablet](./recipehub/static/assets/wireframes/Add-edit-recipe.jpg)
+[Add and Edit page tablet](./recipehub/static/assets/wireframes/add-edit-recipe.jpg)
 
 [profile page tablet](./recipehub/static/assets/wireframes/tablet-profile.jpg)
 
 [view Recipe page tablet](./recipehub/static/assets/wireframes/tablet-recipe.jpg)
 
-[Landing page Desktop](./recipehub/static/assets/wireframes/Home-page.jpg)
+[Landing page Desktop](./recipehub/static/assets/wireframes/home-page.jpg)
 
-[Recipe Explore page Desktop](./recipehub/static/assets/wireframes/Recipe-Explore-page.jpg)
+[Recipe Explore page Desktop](./recipehub/static/assets/wireframes/recipe-explore-page.jpg)
 
 [Add and Edit page Desktop](./recipehub/static/assets/wireframes/Add-edit-recipe.jpg)
 
 [profile page Desktop](./recipehub/static/assets/wireframes/profile-page.jpg)
 
-[view Recipe page Desktop](./recipehub/static/assets/wireframes/Recipe-view-page.jpg)
+[view Recipe page Desktop](./recipehub/static/assets/wireframes/recipe-view-page.jpg)
 
 
 ## Features
@@ -339,6 +339,10 @@ Implement a feature that dynamically adds new tools or cuisines to the database 
 
 9. **Flask**
    - **Source:** [Flask](https://flask.palletsprojects.com/)
+  
+10. **Jinja**
+- **Source:** [Jinja](https://jinja.palletsprojects.com/en/3.0.x/)
+  - Templating language I've used with Python to add logic to my html templates.
 
 
 
@@ -446,12 +450,24 @@ I used google lighthouse to check Accessibility and Performance.
 
 ### Problems Encountered
 
+#### before
 
+![Logo](./recipehub/static/assets/bugs/1.png)
+![Logo](./recipehub/static/assets/bugs/2.png)
+![Logo](./recipehub/static/assets/bugs/3.png)
+
+
+I attempted to modify the background color of the navbar while scrolling down, but the JavaScript code I used for this purpose was not effective. Consequently, I had to define the navbar shrink function from the event listener and call it later within the DOM event listener.
+
+#### debug
+
+![Logo](./recipehub/static/assets/bugs/4.png)
+![Logo](./recipehub/static/assets/bugs/5.png)
 
 ## Deployment
 
 
-## Creating a Gitpod Workspace
+### Creating a Gitpod Workspace
 
 The project was created in Gitpod using the Code Institute Gitpod Full Template using these steps:
 
@@ -460,7 +476,7 @@ The project was created in Gitpod using the Code Institute Gitpod Full Template 
 3. Add a repository name and click 'Create reposiory from template'.
 4. This will create a copy of the template in your own repository. Now you can click the green 'Gitpod' button to open a workspace in Gitpod.
 
-## Forking the GitHub Repository
+### Forking the GitHub Repository
 
 To Fork a Github Repository:
 
@@ -468,7 +484,7 @@ To Fork a Github Repository:
 2. Locate the Fork button in the top-right corner of the page, click Fork.
 3. You should now have a copy of the original repository in your GitHub account.
 
-## Making a Local Clone
+### Making a Local Clone
 
 You will now have a fork of the repository, but you don't have the files in that repository locally on your computer.
 
@@ -491,7 +507,7 @@ $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
 $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
 ```
 
-## Creating an application with Heroku
+### Creating an application with Heroku
 
 You will need to deploy the application using Heroku.
 
@@ -523,13 +539,25 @@ You will need to deploy the application using Heroku.
 
 ### Code
 
+1. Startbootstrap theme used to build the website and highly customized(https://startbootstrap.com/previews/creative).
+2. Bootstrap framework used for modal, flexbox and responsiveness,, cards, portfolio boxes,forms throughout the website.
+3. Bootstrap select use for multple selection in drop down list.
+4. code institute mini projects inspirations were taken throghout the project.
+5. YouTube and google inspiration was taken for some sections.
 
 ### Media
+
+1. Icons and footer icons were taken from Font Awesome and bootstrap Icons.
+2. Google Fonts used in the website
+3. jQuery library used throughout the code.
+4. w3schools was used as a general source of knowledge
 
 
 ### Acknowledgements
 
-
++ Creating a README(How to put together a well-documented README for your projects) by Code Institute
++ I would like to acknowledge my mentor Rory Patrick for his review and valuable feedback throughout the project.
++ I would like to thank my wife for testing the application and feedback.
 
 ## Disclaimer
 
