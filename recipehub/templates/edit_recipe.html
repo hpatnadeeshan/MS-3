@@ -98,4 +98,62 @@
     </div>
 </section>
 
+<!-- Add Cuisine Modal -->
+<div class="modal fade" id="addCuisineModal" tabindex="-1" aria-labelledby="addCuisineModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <header class="modal-header">
+                <h5 class="modal-title" id="addCuisineModalLabel">Add Cuisine</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </header>
+
+            <div class="modal-body">
+                <form method="post" action="{{ url_for('add_cuisine') }}">
+                    <div class="mb-3">
+                        <label for="add_cuisine_name" class="form-label">Cuisine Name:</label>
+                        <input type="text" class="form-control" id="add_cuisine_name" name="cuisine_name" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Cuisine</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add Tool Modal -->
+<div class="modal fade" id="addToolModal" tabindex="-1" aria-labelledby="addToolModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <header class="modal-header">
+                <h5 class="modal-title" id="addToolModalLabel">Add Tool</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </header>
+
+            <div class="modal-body">
+                <form method="post" action="{{ url_for('add_tool') }}">
+                    <div class="mb-3">
+                        <label for="tool_name" class="form-label">Tool Name:</label>
+                        <input type="text" id="tool_name" name="tool_name" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="brand_name" class="form-label">Brand Name:</label>
+                        <select id="brand_name" name="brand_name" class="form-control" required>
+                            <option value="" disabled selected>Select Brand</option>
+                            <option value="Any">Any</option>
+                            <option value="Kitchen Aid">Kitchen Aid</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-3">Add Tool</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock %}
