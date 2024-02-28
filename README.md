@@ -480,7 +480,7 @@ The project was created in Gitpod using the Code Institute Gitpod Full Template 
 
 To Fork a Github Repository:
 
-1. Log in to GitHub and go to the [GitHub Repository](https://github.com/Isabella-Mitchell/gather-recipe-website)
+1. Log in to GitHub and go to the [GitHub Repository](https://github.com/hpatnadeeshan/MS-3)
 2. Locate the Fork button in the top-right corner of the page, click Fork.
 3. You should now have a copy of the original repository in your GitHub account.
 
